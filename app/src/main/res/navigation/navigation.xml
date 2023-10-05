@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/signInFragment">
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.pixelark.capstoneproject.ui.signup.presentation.SignUpFragment"
+        android:label="SignUpFragment" />
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.pixelark.capstoneproject.ui.signin.presentation.SignInFragment"
+        android:label="SignInFragment">
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+</navigation>

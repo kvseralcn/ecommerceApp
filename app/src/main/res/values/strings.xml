@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Capstone Project</string>
+
+    <string name="signIn_name">Hoşgeldiniz</string>
+    <string name="signIn_description">Hesabınıza giriş yapın ve alışverişin keyfini çıkarın.</string>
+    <string name="signIn_to_signUp">Hesabınız yoksa buradan üye olun</string>
+    <string name="signInButton_name">Giriş Yap</string>
+    <string name="signUpButton_name">Üye Ol</string>
+    <string name="signUpPage_title">Yeni bir hesap oluştur</string>
+    <string name="name">Ad</string>
+    <string name="surname">Soyad</string>
+    <string name="email">E-posta</string>
+    <string name="password">Şifre</string>
+    <string name="password_mismatch_error">Şifreler eşleşmiyor!</string>
+    <string name="email_error">E-posta hatalı</string>
+
 </resources>
