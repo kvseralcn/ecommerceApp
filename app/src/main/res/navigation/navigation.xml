@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation"
-    app:startDestination="@id/signInFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/signUpFragment"
@@ -16,4 +16,20 @@
             android:id="@+id/action_signInFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.pixelark.capstoneproject.ui.home.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.pixelark.capstoneproject.ui.search.SearchFragment"
+        android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.pixelark.capstoneproject.ui.cart.CartFragment"
+        android:label="CartFragment" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.pixelark.capstoneproject.ui.favorite.FavoriteFragment"
+        android:label="FavoriteFragment" />
 </navigation>

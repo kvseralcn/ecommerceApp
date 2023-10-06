@@ -1,7 +1,5 @@
 package com.pixelark.capstoneproject.ui.signin.presentation
 
-import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.pixelark.capstoneproject.R
@@ -30,10 +28,7 @@ class SignInFragment : BaseFragment<FragmentSigninBinding, SignInViewModel>(
                 ).show()
             }
         }
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         binding.fragmentSignInBtnSignIn.setOnClickListener {
             val email = binding.fragmentSignInEtEmail.editText?.text.toString()
             val password = binding.fragmentSignInEtPassword.editText?.text.toString()
@@ -58,6 +53,5 @@ class SignInFragment : BaseFragment<FragmentSigninBinding, SignInViewModel>(
         binding.fragmentSignInIvContinueButton.setOnClickListener {
             findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
         }
-
     }
 }

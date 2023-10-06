@@ -1,7 +1,5 @@
 package com.pixelark.capstoneproject.ui.signup.presentation
 
-import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import com.pixelark.capstoneproject.R
 import com.pixelark.capstoneproject.core.BaseFragment
@@ -27,17 +25,13 @@ class SignUpFragment : BaseFragment<FragmentSignupBinding, SignUpViewModel>(
                 ).show()
             }
         }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
         binding.btnSignUp.setOnClickListener {
             var name = binding.fragmentSignUpEtName.editText?.text.toString()
             var surname = binding.fragmentSignUpEtSurname.editText?.text.toString()
-            var email = binding.fragmentSignUpEtEmail.editText?.text.toString()
-            var password = binding.fragmentSignUpEtPassword.editText?.text.toString()
-            var confirmPassword = binding.fragmentSignUpEtConfirmPassword.editText?.text.toString()
+            val email = binding.fragmentSignUpEtEmail.editText?.text.toString()
+            val password = binding.fragmentSignUpEtPassword.editText?.text.toString()
+            val confirmPassword = binding.fragmentSignUpEtConfirmPassword.editText?.text.toString()
             if (password != confirmPassword) {
                 Toast.makeText(
                     requireContext(),

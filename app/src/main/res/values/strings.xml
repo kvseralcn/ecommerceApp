@@ -13,5 +13,9 @@
     <string name="password">Şifre</string>
     <string name="password_mismatch_error">Şifreler eşleşmiyor!</string>
     <string name="email_error">E-posta hatalı</string>
+    <string name="home">Anasayfa</string>
+    <string name="search">Ara</string>
+    <string name="cart">Sepetim</string>
+    <string name="favorite">Favorilerim</string>
 
 </resources>
