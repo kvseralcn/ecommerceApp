@@ -1,4 +1,4 @@
-package com.pixelark.capstoneproject.ui.favorite
+package com.pixelark.capstoneproject.ui.favorite.domain
 
 import com.pixelark.capstoneproject.core.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

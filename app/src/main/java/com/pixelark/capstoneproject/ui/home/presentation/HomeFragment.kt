@@ -1,4 +1,4 @@
-package com.pixelark.capstoneproject.ui.home
+package com.pixelark.capstoneproject.ui.home.presentation
 
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -7,6 +7,7 @@ import com.pixelark.capstoneproject.adapter.SaleProductAdapter
 import com.pixelark.capstoneproject.core.BaseFragment
 import com.pixelark.capstoneproject.core.data.ProductModel
 import com.pixelark.capstoneproject.databinding.FragmentHomeBinding
+import com.pixelark.capstoneproject.ui.home.domain.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

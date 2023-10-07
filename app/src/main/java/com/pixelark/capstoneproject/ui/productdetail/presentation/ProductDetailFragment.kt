@@ -1,4 +1,4 @@
-package com.pixelark.capstoneproject.ui.productdetail
+package com.pixelark.capstoneproject.ui.productdetail.presentation
 
 import android.graphics.Paint
 import android.view.View
@@ -7,6 +7,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.pixelark.capstoneproject.core.BaseFragment
 import com.pixelark.capstoneproject.databinding.FragmentProductDetailsBinding
+import com.pixelark.capstoneproject.ui.productdetail.domain.ProductDetailViewModel
 import com.pixelark.capstoneproject.util.Constants
 import dagger.hilt.android.AndroidEntryPoint
 

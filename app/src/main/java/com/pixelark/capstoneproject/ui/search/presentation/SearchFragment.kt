@@ -1,7 +1,8 @@
-package com.pixelark.capstoneproject.ui.search
+package com.pixelark.capstoneproject.ui.search.presentation
 
 import com.pixelark.capstoneproject.core.BaseFragment
 import com.pixelark.capstoneproject.databinding.FragmentSearchBinding
+import com.pixelark.capstoneproject.ui.search.domain.SearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.pixelark.capstoneproject.ui.home
+package com.pixelark.capstoneproject.ui.home.domain
 
 import android.util.Log
 import androidx.lifecycle.LiveData

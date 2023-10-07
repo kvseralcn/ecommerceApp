@@ -1,4 +1,4 @@
-package com.pixelark.capstoneproject.ui.search
+package com.pixelark.capstoneproject.ui.search.domain
 
 import com.pixelark.capstoneproject.core.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

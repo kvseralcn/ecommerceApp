@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.pixelark.capstoneproject.ui.home.HomeFragment"
+        android:name="com.pixelark.capstoneproject.ui.home.presentation.HomeFragment"
         android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_productDetailFragment"
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.pixelark.capstoneproject.ui.search.SearchFragment"
+        android:name="com.pixelark.capstoneproject.ui.search.presentation.SearchFragment"
         android:label="SearchFragment" />
     <fragment
         android:id="@+id/cartFragment"
@@ -39,7 +39,7 @@
         android:label="FavoriteFragment" />
     <fragment
         android:id="@+id/productDetailFragment"
-        android:name="com.pixelark.capstoneproject.ui.productdetail.ProductDetailFragment"
+        android:name="com.pixelark.capstoneproject.ui.productdetail.presentation.ProductDetailFragment"
         android:label="ProductDetailFragment">
         <argument
             android:name="productId"
