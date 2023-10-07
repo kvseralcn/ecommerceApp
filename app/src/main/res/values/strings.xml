@@ -17,5 +17,6 @@
     <string name="search">Ara</string>
     <string name="cart">Sepetim</string>
     <string name="favorite">Favorilerim</string>
+    <string name="sale_product_text">Süper Fiyat, Süper Teklif</string>
 
 </resources>

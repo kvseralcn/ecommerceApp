@@ -1,7 +1,9 @@
 package com.pixelark.capstoneproject.core.data
 
+import java.io.Serializable
+
 data class ProductModel(
-    val id: Int? = null,
+    val id: Int = 0,
     val title: String? = null,
     val price: Double? = null,
     val salePrice: Double? = null,
@@ -10,7 +12,7 @@ data class ProductModel(
     val imageOne: String? = null,
     val imageTwo: String? = null,
     val imageThree: String? = null,
-    val rate: Double? = null,
-    val count: Int? = null,
+    val rate: Float = 0.0f,
+    val count: Int = 0,
     val saleState: Boolean? = null
-)
+) : Serializable

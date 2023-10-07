@@ -1,5 +1,6 @@
 package com.pixelark.capstoneproject.core.repository
 
+import com.pixelark.capstoneproject.core.data.ProductDetailResponse
 import com.pixelark.capstoneproject.core.data.SaleProductsResponse
 import com.pixelark.capstoneproject.core.service.StoreApi
 import kotlinx.coroutines.Dispatchers
@@ -13,5 +14,9 @@ class StoreRepositoryImpl @Inject constructor(
 
     override fun getSaleProducts(): Flow<SaleProductsResponse> =
         contentAPI.getSaleProducts()
+            .flowOn(Dispatchers.IO)
+
+    override fun getProductDetail(id: Int): Flow<ProductDetailResponse> =
+        contentAPI.getProductDetail(id)
             .flowOn(Dispatchers.IO)
 }
