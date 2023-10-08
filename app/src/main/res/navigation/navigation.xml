@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/signInFragment">
 
     <fragment
         android:id="@+id/signUpFragment"
@@ -31,11 +31,11 @@
         android:label="SearchFragment" />
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.pixelark.capstoneproject.ui.cart.CartFragment"
+        android:name="com.pixelark.capstoneproject.ui.cart.presentation.CartFragment"
         android:label="CartFragment" />
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.pixelark.capstoneproject.ui.favorite.FavoriteFragment"
+        android:name="com.pixelark.capstoneproject.ui.favorite.presentation.FavoriteFragment"
         android:label="FavoriteFragment" />
     <fragment
         android:id="@+id/productDetailFragment"

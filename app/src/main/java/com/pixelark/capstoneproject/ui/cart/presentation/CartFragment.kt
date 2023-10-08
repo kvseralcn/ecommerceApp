@@ -1,7 +1,8 @@
-package com.pixelark.capstoneproject.ui.cart
+package com.pixelark.capstoneproject.ui.cart.presentation
 
 import com.pixelark.capstoneproject.core.BaseFragment
 import com.pixelark.capstoneproject.databinding.FragmentCartBinding
+import com.pixelark.capstoneproject.ui.cart.domain.CartViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

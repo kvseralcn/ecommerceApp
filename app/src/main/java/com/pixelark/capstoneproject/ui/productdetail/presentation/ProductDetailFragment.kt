@@ -2,10 +2,13 @@ package com.pixelark.capstoneproject.ui.productdetail.presentation
 
 import android.graphics.Paint
 import android.view.View
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
 import com.pixelark.capstoneproject.core.BaseFragment
+import com.pixelark.capstoneproject.core.data.AddToCartRequest
 import com.pixelark.capstoneproject.databinding.FragmentProductDetailsBinding
 import com.pixelark.capstoneproject.ui.productdetail.domain.ProductDetailViewModel
 import com.pixelark.capstoneproject.util.Constants
@@ -40,6 +43,8 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailsBinding, Produc
             }
             binding.fragmentProductDetailsBtnFavorite.setOnClickListener { }
 
+
+
             when (response.product.count) {
                 in 2..5 -> {
                     binding.fragmentProductDetailsTvSaleProductCount.text =
@@ -70,7 +75,20 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailsBinding, Produc
                 binding.fragmentProductDetailsTvSaleProductSalePrice.visibility = View.GONE
             }
         }
+
+        binding.fragmentPersonalInformationBtnAddCart.setOnClickListener {
+            val user = FirebaseAuth.getInstance().currentUser
+            if (user != null) {
+                viewModel.getAddCart(AddToCartRequest(user.uid, args.productId))
+            }
+        }
+
+        viewModel.addToCartData.observe(this) { response ->
+            Toast.makeText(
+                requireContext(),
+                response.message,
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
-
-
 }

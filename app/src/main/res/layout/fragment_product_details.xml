@@ -135,7 +135,7 @@
             app:layout_constraintTop_toBottomOf="@+id/fragmentProductDetails_tvSaleProductSalePrice" />
 
         <Button
-            android:id="@+id/fragmentPersonalInformation_btnContinue"
+            android:id="@+id/fragmentPersonalInformation_btnAddCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
