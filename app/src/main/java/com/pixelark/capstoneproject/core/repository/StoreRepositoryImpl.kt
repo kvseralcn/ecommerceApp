@@ -4,6 +4,7 @@ import com.pixelark.capstoneproject.core.data.AddToCartRequest
 import com.pixelark.capstoneproject.core.data.AddToCartResponse
 import com.pixelark.capstoneproject.core.data.DeleteFromCartRequest
 import com.pixelark.capstoneproject.core.data.DeleteFromCartResponse
+import com.pixelark.capstoneproject.core.data.GetCartProductsResponse
 import com.pixelark.capstoneproject.core.data.ProductDetailResponse
 import com.pixelark.capstoneproject.core.data.SaleProductsResponse
 import com.pixelark.capstoneproject.core.service.StoreApi
@@ -30,5 +31,9 @@ class StoreRepositoryImpl @Inject constructor(
 
     override fun getDeleteFromCart(request: DeleteFromCartRequest): Flow<DeleteFromCartResponse> =
         contentAPI.getDeleteFromCart(request)
+            .flowOn(Dispatchers.IO)
+
+    override fun getCartProducts(userId: String): Flow<GetCartProductsResponse> =
+        contentAPI.getCartProducts(userId)
             .flowOn(Dispatchers.IO)
 }

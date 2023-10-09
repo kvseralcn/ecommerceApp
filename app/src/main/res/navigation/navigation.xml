@@ -32,7 +32,11 @@
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.pixelark.capstoneproject.ui.cart.presentation.CartFragment"
-        android:label="CartFragment" />
+        android:label="CartFragment">
+        <argument
+            android:name="data"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.pixelark.capstoneproject.ui.favorite.presentation.FavoriteFragment"

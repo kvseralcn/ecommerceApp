@@ -4,6 +4,7 @@ import com.pixelark.capstoneproject.core.data.AddToCartRequest
 import com.pixelark.capstoneproject.core.data.AddToCartResponse
 import com.pixelark.capstoneproject.core.data.DeleteFromCartRequest
 import com.pixelark.capstoneproject.core.data.DeleteFromCartResponse
+import com.pixelark.capstoneproject.core.data.GetCartProductsResponse
 import com.pixelark.capstoneproject.core.data.ProductDetailResponse
 import com.pixelark.capstoneproject.core.data.SaleProductsResponse
 import retrofit2.http.Body
@@ -28,6 +29,12 @@ interface RetrofitStoreApi {
         @Header("store") str: String = "ktechstore",
         @Body request: AddToCartRequest
     ): AddToCartResponse
+
+    @GET("get_cart_products.php")
+    suspend fun getCartProducts(
+        @Header("store") str: String = "ktechstore",
+        @Query("userId") userId: String
+    ): GetCartProductsResponse
 
     @POST("delete_from_cart.php")
     suspend fun getDeleteFromCart(
