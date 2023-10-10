@@ -2,8 +2,8 @@ package com.pixelark.capstoneproject.ui.home.presentation
 
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.pixelark.capstoneproject.adapter.ProductClickListener
 import com.pixelark.capstoneproject.adapter.SaleProductAdapter
+import com.pixelark.capstoneproject.adapter.SaleProductClickListener
 import com.pixelark.capstoneproject.core.BaseFragment
 import com.pixelark.capstoneproject.core.data.ProductModel
 import com.pixelark.capstoneproject.databinding.FragmentHomeBinding
@@ -27,15 +27,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
 
     private fun setSaleProductAdapter(productList: List<ProductModel>) {
         saleProductAdapter =
-            SaleProductAdapter(productList, object : ProductClickListener {
-                override fun onClick(selectedProduct: ProductModel) {
-                    val action =
-                        HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(
-                            selectedProduct.id
-                        )
-                    findNavController().navigate(action)
+            SaleProductAdapter(productList,
+                object : SaleProductClickListener {
+                    override fun onClick(selectedProduct: ProductModel) {
+                        val action =
+                            HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(
+                                selectedProduct.id
+                            )
+                        findNavController().navigate(action)
+                    }
                 }
-            })
+            )
         binding.fragmentHomeRvSaleRecyclerView.adapter = saleProductAdapter
     }
 }

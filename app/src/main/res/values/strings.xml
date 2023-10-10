@@ -14,9 +14,11 @@
     <string name="password_mismatch_error">Şifreler eşleşmiyor!</string>
     <string name="email_error">E-posta hatalı</string>
     <string name="home">Anasayfa</string>
-    <string name="search">Ara</string>
     <string name="cart">Sepetim</string>
     <string name="favorite">Favorilerim</string>
     <string name="sale_product_text">Süper Fiyat, Süper Teklif</string>
+    <string name="search_bar_text">Ürün Ara</string>
+    <string name="search">Ara</string>
+    <string name="search_hint">Ürün Ara</string>
 
 </resources>

@@ -6,30 +6,29 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pixelark.capstoneproject.core.data.ProductModel
-import com.pixelark.capstoneproject.databinding.SaleProductsItemBinding
+import com.pixelark.capstoneproject.databinding.SearchItemBinding
 import com.pixelark.capstoneproject.util.Constants
 
-class SaleProductAdapter constructor(
-    private val productList: List<ProductModel>,
-    //private val searchProductClickListener: SearchProductClickListener
-    private val searchProductClickListener: SaleProductClickListener
-) : RecyclerView.Adapter<SaleProductAdapter.SaleProductHolder>() {
+class SearchProductAdapter constructor(
+    private val searchProductList: List<ProductModel>,
+    private val searchProductClickListener: SearchProductClickListener
+) : RecyclerView.Adapter<SearchProductAdapter.SearchProductHolder>() {
 
-    class SaleProductHolder(val binding: SaleProductsItemBinding) :
+    class SearchProductHolder(val binding: SearchItemBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SaleProductHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchProductHolder {
         val binding =
-            SaleProductsItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return SaleProductHolder(binding)
+            SearchItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return SearchProductHolder(binding)
     }
 
     override fun getItemCount(): Int {
-        return productList.size
+        return searchProductList.size
     }
 
-    override fun onBindViewHolder(holder: SaleProductHolder, position: Int) {
-        val products = productList[position]
+    override fun onBindViewHolder(holder: SearchProductHolder, position: Int) {
+        val products = searchProductList[position]
 
         Glide.with(holder.itemView.context)
             .load(products.imageOne)
@@ -43,11 +42,11 @@ class SaleProductAdapter constructor(
         holder.binding.saleProductTvProductPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
 
         holder.itemView.setOnClickListener {
-            searchProductClickListener.onClick(products)
+            searchProductClickListener.onSearchClick(products)
         }
     }
 }
 
-interface SaleProductClickListener {
-    fun onClick(selectedProduct: ProductModel)
+interface SearchProductClickListener {
+    fun onSearchClick(selectedProduct: ProductModel)
 }

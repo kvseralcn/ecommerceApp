@@ -7,6 +7,7 @@ import com.pixelark.capstoneproject.core.data.DeleteFromCartResponse
 import com.pixelark.capstoneproject.core.data.GetCartProductsResponse
 import com.pixelark.capstoneproject.core.data.ProductDetailResponse
 import com.pixelark.capstoneproject.core.data.SaleProductsResponse
+import com.pixelark.capstoneproject.core.data.SearchProductsResponse
 import com.pixelark.capstoneproject.core.service.StoreApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -35,5 +36,9 @@ class StoreRepositoryImpl @Inject constructor(
 
     override fun getCartProducts(userId: String): Flow<GetCartProductsResponse> =
         contentAPI.getCartProducts(userId)
+            .flowOn(Dispatchers.IO)
+
+    override fun getSearchProducts(query: String): Flow<SearchProductsResponse> =
+        contentAPI.getSearchProducts(query)
             .flowOn(Dispatchers.IO)
 }
