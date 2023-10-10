@@ -2,6 +2,8 @@ package com.pixelark.capstoneproject.core.service
 
 import com.pixelark.capstoneproject.core.data.AddToCartRequest
 import com.pixelark.capstoneproject.core.data.AddToCartResponse
+import com.pixelark.capstoneproject.core.data.ClearCartRequest
+import com.pixelark.capstoneproject.core.data.ClearCartResponse
 import com.pixelark.capstoneproject.core.data.DeleteFromCartRequest
 import com.pixelark.capstoneproject.core.data.DeleteFromCartResponse
 import com.pixelark.capstoneproject.core.data.GetCartProductsResponse
@@ -42,6 +44,12 @@ interface RetrofitStoreApi {
         @Header("store") str: String = "ktechstore",
         @Body request: DeleteFromCartRequest
     ): DeleteFromCartResponse
+
+    @POST("clear_cart.php")
+    suspend fun getClearCart(
+        @Header("store") str: String = "ktechstore",
+        @Body request: ClearCartRequest
+    ): ClearCartResponse
 
     @GET("search_product.php")
     suspend fun getSearchProducts(

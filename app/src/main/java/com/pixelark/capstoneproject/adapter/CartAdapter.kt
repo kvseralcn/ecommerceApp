@@ -55,6 +55,11 @@ class CartAdapter constructor(
             notifyDataSetChanged()
         }
     }
+
+    fun clearList() {
+        cartProductList.clear()
+        notifyDataSetChanged()
+    }
 }
 
 interface CartClickListener {
