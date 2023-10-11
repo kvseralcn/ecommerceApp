@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.pixelark.capstoneproject.core.BaseViewModel
 import com.pixelark.capstoneproject.core.data.CategoriesResponse
+import com.pixelark.capstoneproject.core.data.ProductsResponse
 import com.pixelark.capstoneproject.core.data.SaleProductsResponse
 import com.pixelark.capstoneproject.core.repository.StoreRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -27,6 +28,10 @@ class HomeViewModel @Inject constructor(private val storeRepository: StoreReposi
     private val _categoriesData = MutableLiveData<CategoriesResponse>()
     val categoriesData: LiveData<CategoriesResponse>
         get() = _categoriesData
+
+    private val _productsData = MutableLiveData<ProductsResponse>()
+    val productsData: LiveData<ProductsResponse>
+        get() = _productsData
 
     fun getSaleProducts() {
         viewModelScope.launch {
@@ -50,6 +55,19 @@ class HomeViewModel @Inject constructor(private val storeRepository: StoreReposi
                 .collect { products ->
                     Log.d(TAG, products.toString())
                     _categoriesData.postValue(products)
+                }
+        }
+    }
+
+    fun getProducts() {
+        viewModelScope.launch {
+            storeRepository.getProducts()
+                .catch {
+                    Log.e(TAG, it.toString())
+                }
+                .collect { products ->
+                    Log.d(TAG, products.toString())
+                    _productsData.postValue(products)
                 }
         }
     }

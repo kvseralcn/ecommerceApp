@@ -4,6 +4,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pixelark.capstoneproject.adapter.CategoryAdapter
 import com.pixelark.capstoneproject.adapter.CategoryClickListener
+import com.pixelark.capstoneproject.adapter.ProductAdapter
+import com.pixelark.capstoneproject.adapter.ProductClickListener
 import com.pixelark.capstoneproject.adapter.SaleProductAdapter
 import com.pixelark.capstoneproject.adapter.SaleProductClickListener
 import com.pixelark.capstoneproject.core.BaseFragment
@@ -18,11 +20,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
 ) {
     private lateinit var saleProductAdapter: SaleProductAdapter
     private lateinit var categoryAdapter: CategoryAdapter
+    private lateinit var productAdapter: ProductAdapter
     override fun onFragmentStarted() {
         binding.fragmentHomeRvSaleRecyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.fragmentHomeRvCategoryRecyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.fragmentHomeRvProductRecyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
         viewModel.getSaleProducts()
         viewModel.saleProductsData.observe(this) { response ->
@@ -32,6 +37,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         viewModel.getCategories()
         viewModel.categoriesData.observe(this) { response ->
             setCategoryAdapter(response.categories)
+        }
+
+        viewModel.getProducts()
+        viewModel.productsData.observe(this) { response ->
+            setProductAdapter(response.products)
         }
     }
 
@@ -49,6 +59,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
                 }
             )
         binding.fragmentHomeRvSaleRecyclerView.adapter = saleProductAdapter
+    }
+
+    private fun setProductAdapter(productList: List<ProductModel>) {
+        productAdapter =
+            ProductAdapter(productList,
+                object : ProductClickListener {
+                    override fun onClick(selectedProduct: ProductModel) {
+                        val action =
+                            HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(
+                                selectedProduct.id
+                            )
+                        findNavController().navigate(action)
+                    }
+                }
+            )
+        binding.fragmentHomeRvProductRecyclerView.adapter = productAdapter
     }
 
     private fun setCategoryAdapter(productList: List<String>) {

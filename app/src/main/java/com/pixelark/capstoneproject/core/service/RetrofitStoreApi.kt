@@ -10,6 +10,7 @@ import com.pixelark.capstoneproject.core.data.DeleteFromCartResponse
 import com.pixelark.capstoneproject.core.data.GetCartProductsResponse
 import com.pixelark.capstoneproject.core.data.ProductDetailResponse
 import com.pixelark.capstoneproject.core.data.ProductsByCategoryResponse
+import com.pixelark.capstoneproject.core.data.ProductsResponse
 import com.pixelark.capstoneproject.core.data.SaleProductsResponse
 import com.pixelark.capstoneproject.core.data.SearchProductsResponse
 import retrofit2.http.Body
@@ -19,6 +20,10 @@ import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface RetrofitStoreApi {
+    @GET("get_products.php")
+    suspend fun getProducts(
+        @Header("store") str: String = "ktechstore",
+    ): ProductsResponse
 
     @GET("get_sale_products.php")
     suspend fun getSaleProducts(@Header("store") str: String = "ktechstore"): SaleProductsResponse

@@ -10,11 +10,13 @@ import com.pixelark.capstoneproject.core.data.DeleteFromCartResponse
 import com.pixelark.capstoneproject.core.data.GetCartProductsResponse
 import com.pixelark.capstoneproject.core.data.ProductDetailResponse
 import com.pixelark.capstoneproject.core.data.ProductsByCategoryResponse
+import com.pixelark.capstoneproject.core.data.ProductsResponse
 import com.pixelark.capstoneproject.core.data.SaleProductsResponse
 import com.pixelark.capstoneproject.core.data.SearchProductsResponse
 import kotlinx.coroutines.flow.Flow
 
 interface StoreApi {
+    fun getProducts(): Flow<ProductsResponse>
     fun getSaleProducts(): Flow<SaleProductsResponse>
     fun getProductDetail(id: Int): Flow<ProductDetailResponse>
     fun getAddToCart(request: AddToCartRequest): Flow<AddToCartResponse>
