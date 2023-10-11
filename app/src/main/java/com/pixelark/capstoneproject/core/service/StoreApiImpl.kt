@@ -2,12 +2,14 @@ package com.pixelark.capstoneproject.core.service
 
 import com.pixelark.capstoneproject.core.data.AddToCartRequest
 import com.pixelark.capstoneproject.core.data.AddToCartResponse
+import com.pixelark.capstoneproject.core.data.CategoriesResponse
 import com.pixelark.capstoneproject.core.data.ClearCartRequest
 import com.pixelark.capstoneproject.core.data.ClearCartResponse
 import com.pixelark.capstoneproject.core.data.DeleteFromCartRequest
 import com.pixelark.capstoneproject.core.data.DeleteFromCartResponse
 import com.pixelark.capstoneproject.core.data.GetCartProductsResponse
 import com.pixelark.capstoneproject.core.data.ProductDetailResponse
+import com.pixelark.capstoneproject.core.data.ProductsByCategoryResponse
 import com.pixelark.capstoneproject.core.data.SaleProductsResponse
 import com.pixelark.capstoneproject.core.data.SearchProductsResponse
 import kotlinx.coroutines.flow.Flow
@@ -49,5 +51,14 @@ class StoreApiImpl @Inject constructor(
     override fun getSearchProducts(query: String): Flow<SearchProductsResponse> =
         flow {
             emit(retrofitContentApi.getSearchProducts(query = query))
+        }
+
+    override fun getCategories(): Flow<CategoriesResponse> = flow {
+        emit(retrofitContentApi.getCategories())
+    }
+
+    override fun getProductsByCategory(category: String): Flow<ProductsByCategoryResponse> =
+        flow {
+            emit(retrofitContentApi.getProductsByCategory(category = category))
         }
 }

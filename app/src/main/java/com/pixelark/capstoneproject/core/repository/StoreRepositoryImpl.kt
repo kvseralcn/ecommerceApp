@@ -2,12 +2,14 @@ package com.pixelark.capstoneproject.core.repository
 
 import com.pixelark.capstoneproject.core.data.AddToCartRequest
 import com.pixelark.capstoneproject.core.data.AddToCartResponse
+import com.pixelark.capstoneproject.core.data.CategoriesResponse
 import com.pixelark.capstoneproject.core.data.ClearCartRequest
 import com.pixelark.capstoneproject.core.data.ClearCartResponse
 import com.pixelark.capstoneproject.core.data.DeleteFromCartRequest
 import com.pixelark.capstoneproject.core.data.DeleteFromCartResponse
 import com.pixelark.capstoneproject.core.data.GetCartProductsResponse
 import com.pixelark.capstoneproject.core.data.ProductDetailResponse
+import com.pixelark.capstoneproject.core.data.ProductsByCategoryResponse
 import com.pixelark.capstoneproject.core.data.SaleProductsResponse
 import com.pixelark.capstoneproject.core.data.SearchProductsResponse
 import com.pixelark.capstoneproject.core.service.StoreApi
@@ -46,5 +48,13 @@ class StoreRepositoryImpl @Inject constructor(
 
     override fun getSearchProducts(query: String): Flow<SearchProductsResponse> =
         contentAPI.getSearchProducts(query)
+            .flowOn(Dispatchers.IO)
+
+    override fun getCategories(): Flow<CategoriesResponse> =
+        contentAPI.getCategories()
+            .flowOn(Dispatchers.IO)
+
+    override fun getProductsByCategory(category: String): Flow<ProductsByCategoryResponse> =
+        contentAPI.getProductsByCategory(category)
             .flowOn(Dispatchers.IO)
 }

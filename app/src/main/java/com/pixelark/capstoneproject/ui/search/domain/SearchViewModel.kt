@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.pixelark.capstoneproject.core.BaseViewModel
 import com.pixelark.capstoneproject.core.data.SearchProductsResponse
 import com.pixelark.capstoneproject.core.repository.StoreRepository
-import com.pixelark.capstoneproject.ui.productdetail.domain.ProductDetailViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
@@ -29,10 +28,10 @@ class SearchViewModel @Inject constructor(private val storeRepository: StoreRepo
         viewModelScope.launch {
             storeRepository.getSearchProducts(query = query)
                 .catch {
-                    Log.e(ProductDetailViewModel.TAG, it.toString())
+                    Log.e(TAG, it.toString())
                 }
                 .collect { product ->
-                    Log.d(ProductDetailViewModel.TAG, product.toString())
+                    Log.d(TAG, product.toString())
                     _searchProductData.postValue(product)
                 }
         }

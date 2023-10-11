@@ -2,12 +2,14 @@ package com.pixelark.capstoneproject.core.service
 
 import com.pixelark.capstoneproject.core.data.AddToCartRequest
 import com.pixelark.capstoneproject.core.data.AddToCartResponse
+import com.pixelark.capstoneproject.core.data.CategoriesResponse
 import com.pixelark.capstoneproject.core.data.ClearCartRequest
 import com.pixelark.capstoneproject.core.data.ClearCartResponse
 import com.pixelark.capstoneproject.core.data.DeleteFromCartRequest
 import com.pixelark.capstoneproject.core.data.DeleteFromCartResponse
 import com.pixelark.capstoneproject.core.data.GetCartProductsResponse
 import com.pixelark.capstoneproject.core.data.ProductDetailResponse
+import com.pixelark.capstoneproject.core.data.ProductsByCategoryResponse
 import com.pixelark.capstoneproject.core.data.SaleProductsResponse
 import com.pixelark.capstoneproject.core.data.SearchProductsResponse
 import retrofit2.http.Body
@@ -57,4 +59,12 @@ interface RetrofitStoreApi {
         @Query("query") query: String
     ): SearchProductsResponse
 
+    @GET("get_categories.php")
+    suspend fun getCategories(@Header("store") str: String = "ktechstore"): CategoriesResponse
+
+    @GET("get_products_by_category.php")
+    suspend fun getProductsByCategory(
+        @Header("store") str: String = "ktechstore",
+        @Query("category") category: String
+    ): ProductsByCategoryResponse
 }

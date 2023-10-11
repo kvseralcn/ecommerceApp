@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_homeFragment_to_productDetailFragment"
             app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_productsByCategoryFragment"
+            app:destination="@id/productsByCategoryFragment" />
 
     </fragment>
     <fragment
@@ -55,5 +58,16 @@
         <argument
             android:name="productId"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/productsByCategoryFragment"
+        android:name="com.pixelark.capstoneproject.ui.productsbycategory.presentation.ProductsByCategoryFragment"
+        android:label="ProductsByCategoryFragment">
+        <action
+            android:id="@+id/action_productsByCategoryFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <argument
+            android:name="data"
+            app:argType="string" />
     </fragment>
 </navigation>
