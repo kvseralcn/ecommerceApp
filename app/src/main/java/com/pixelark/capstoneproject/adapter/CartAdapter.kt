@@ -8,6 +8,8 @@ import com.bumptech.glide.Glide
 import com.pixelark.capstoneproject.core.data.ProductModel
 import com.pixelark.capstoneproject.databinding.CartProductItemBinding
 import com.pixelark.capstoneproject.util.Constants
+import com.pixelark.capstoneproject.util.getPriceWithCurrency
+import com.pixelark.capstoneproject.util.getSalePriceWithCurrency
 
 class CartAdapter constructor(
     private val cartProductList: MutableList<ProductModel>,
@@ -36,9 +38,9 @@ class CartAdapter constructor(
             .into(holder.binding.cartProductItemIvProductImage)
         holder.binding.cartProductItemTvProductName.text = cartProducts.title
         holder.binding.cartProductItemTvProductPrice.text =
-            cartProducts.price.toString() + Constants.TextPicker.CURRENCY
+            cartProducts.getPriceWithCurrency(Constants.Currency.TL)
         holder.binding.cartProductItemTvProductSalePrice.text =
-            cartProducts.salePrice.toString() + Constants.TextPicker.CURRENCY
+            cartProducts.getSalePriceWithCurrency(Constants.Currency.TL)
 
         holder.binding.cartProductItemTvProductSalePrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
 

@@ -6,30 +6,30 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pixelark.capstoneproject.core.data.ProductModel
-import com.pixelark.capstoneproject.databinding.ProductsItemBinding
+import com.pixelark.capstoneproject.databinding.FavoriteItemBinding
 import com.pixelark.capstoneproject.util.Constants
 import com.pixelark.capstoneproject.util.getPriceWithCurrency
 import com.pixelark.capstoneproject.util.getSalePriceWithCurrency
 
-class ProductAdapter constructor(
+class FavoriteProductAdapter constructor(
     private val productList: List<ProductModel>,
-    private val productClickListener: FavoriteProductClickListener
-) : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
+    private val favoriteProductClickListener: FavoriteProductClickListener
+) : RecyclerView.Adapter<FavoriteProductAdapter.FavoriteProductHolder>() {
 
-    class ProductHolder(val binding: ProductsItemBinding) :
+    class FavoriteProductHolder(val binding: FavoriteItemBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteProductHolder {
         val binding =
-            ProductsItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ProductHolder(binding)
+            FavoriteItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return FavoriteProductHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return productList.size
     }
 
-    override fun onBindViewHolder(holder: ProductHolder, position: Int) {
+    override fun onBindViewHolder(holder: FavoriteProductHolder, position: Int) {
         val products = productList[position]
 
         Glide.with(holder.itemView.context)
@@ -43,11 +43,11 @@ class ProductAdapter constructor(
 
         holder.binding.productsItemTvProductPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
         holder.itemView.setOnClickListener {
-            productClickListener.onClick(products)
+            favoriteProductClickListener.onClick(products)
         }
     }
 }
 
-interface ProductClickListener {
+interface FavoriteProductClickListener {
     fun onClick(selectedProduct: ProductModel)
 }

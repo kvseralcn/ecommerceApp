@@ -8,6 +8,8 @@ import com.bumptech.glide.Glide
 import com.pixelark.capstoneproject.core.data.ProductModel
 import com.pixelark.capstoneproject.databinding.SearchItemBinding
 import com.pixelark.capstoneproject.util.Constants
+import com.pixelark.capstoneproject.util.getPriceWithCurrency
+import com.pixelark.capstoneproject.util.getSalePriceWithCurrency
 
 class SearchProductAdapter constructor(
     private val searchProductList: List<ProductModel>,
@@ -35,9 +37,9 @@ class SearchProductAdapter constructor(
             .into(holder.binding.saleProductIvProductImage)
         holder.binding.saleProductTvProductName.text = products.title
         holder.binding.saleProductTvProductPrice.text =
-            products.price.toString() + Constants.TextPicker.CURRENCY
+            products.getPriceWithCurrency(Constants.Currency.TL)
         holder.binding.saleProductTvProductSalePrice.text =
-            products.salePrice.toString() + Constants.TextPicker.CURRENCY
+            products.getSalePriceWithCurrency(Constants.Currency.TL)
 
         holder.binding.saleProductTvProductPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
 

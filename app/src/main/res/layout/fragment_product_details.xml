@@ -61,35 +61,35 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/fragmentProductDetails_clConstraint"
-            app:layout_constraintTop_toBottomOf="@+id/fragmentProductDetails_tvSaleProductTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentProductDetails_tvSaleProductTitle">
 
             <RatingBar
                 android:id="@+id/fragmentProductDetails_rbBar"
+                style="@style/customRatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:isIndicator="true"
                 android:numStars="5"
                 android:progressTint="#ECB71B"
                 android:stepSize="0.01"
-                style="@style/customRatingBar"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/fragmentProductDetails_tvSaleProductRate"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:layout_marginStart="8dp"
                 android:id="@+id/fragmentProductDetails_tvSaleProductRate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/fragmentProductDetails_rbBar" />
+                app:layout_constraintStart_toEndOf="@+id/fragmentProductDetails_rbBar"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/fragmentProductDetails_tvSaleProductCount"
@@ -98,8 +98,8 @@
                 android:layout_marginTop="16dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -113,22 +113,23 @@
             app:layout_constraintTop_toBottomOf="@+id/fragmentProductDetails_clConstraint" />
 
         <TextView
-            android:textColor="@color/green"
             android:id="@+id/fragmentProductDetails_tvSaleProductSalePrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:textColor="@color/green"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentProductDetails_tvSaleProductDescription" />
 
         <TextView
-            android:textColor="@color/red"
             android:id="@+id/fragmentProductDetails_tvProductPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:textColor="@color/red"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"

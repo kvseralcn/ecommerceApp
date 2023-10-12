@@ -21,4 +21,12 @@
     <string name="search">Ara</string>
     <string name="search_hint">Ürün Ara</string>
 
+    <!-- Product Detail -->
+    <string name="stock_available">Stok mevcut</string>
+    <string name="stock_not_available">Stok mevcut değil</string>
+    <string name="stock_almost_empty">Stok tükenmek üzere!</string>
+    <string name="last_n_product_left">Son %1$d ürün kaldı!</string>
+    <string name="add_favorite_success">Favorilere eklendi.</string>
+    <string name="add_favorite_error">Favorilere eklerken bir hata oluştu.</string>
+
 </resources>

@@ -20,6 +20,9 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>(
     FragmentCartBinding::inflate, CartViewModel::class.java
 ) {
     private lateinit var cartAdapter: CartAdapter
+    fun initializeCartAdapter(adapter: CartAdapter) {
+        cartAdapter = adapter
+    }
 
     override fun onFragmentStarted() {
         binding.fragmentCartRvCartRecyclerView.layoutManager =
@@ -46,7 +49,9 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>(
 
         viewModel.deleteAllProductsData.observe(requireActivity()) { response ->
             if (response.status == 200) {
-                cartAdapter.clearList()
+                if (::cartAdapter.isInitialized) {
+                    cartAdapter.clearList()
+                }
             }
         }
     }

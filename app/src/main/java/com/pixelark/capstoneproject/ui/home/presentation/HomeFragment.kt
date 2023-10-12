@@ -4,8 +4,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pixelark.capstoneproject.adapter.CategoryAdapter
 import com.pixelark.capstoneproject.adapter.CategoryClickListener
+import com.pixelark.capstoneproject.adapter.FavoriteProductClickListener
 import com.pixelark.capstoneproject.adapter.ProductAdapter
-import com.pixelark.capstoneproject.adapter.ProductClickListener
 import com.pixelark.capstoneproject.adapter.SaleProductAdapter
 import com.pixelark.capstoneproject.adapter.SaleProductClickListener
 import com.pixelark.capstoneproject.core.BaseFragment
@@ -64,7 +64,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
     private fun setProductAdapter(productList: List<ProductModel>) {
         productAdapter =
             ProductAdapter(productList,
-                object : ProductClickListener {
+                object : FavoriteProductClickListener {
                     override fun onClick(selectedProduct: ProductModel) {
                         val action =
                             HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(
