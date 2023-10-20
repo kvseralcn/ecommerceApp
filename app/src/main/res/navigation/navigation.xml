@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_cartFragment_to_productDetailFragment"
             app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
@@ -73,5 +76,21 @@
         <argument
             android:name="data"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.pixelark.capstoneproject.ui.payment.presentation.PaymentFragment"
+        android:label="PaymentFragment">
+        <action
+            android:id="@+id/action_paymentFragment_to_paymentCompleteFragment"
+            app:destination="@id/paymentCompleteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentCompleteFragment"
+        android:name="com.pixelark.capstoneproject.ui.paymentcomplete.presentation.PaymentCompleteFragment"
+        android:label="PaymentCompleteFragment">
+        <action
+            android:id="@+id/action_paymentCompleteFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

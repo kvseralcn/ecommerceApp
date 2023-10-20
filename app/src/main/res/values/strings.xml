@@ -29,4 +29,38 @@
     <string name="add_favorite_success">Favorilere eklendi.</string>
     <string name="add_favorite_error">Favorilere eklerken bir hata oluştu.</string>
 
+    <string name="unknown">Bilgi alınamadı.</string>
+    <string name="edittext_empty_error">Bu alan boş bırakılamaz!</string>
+
+    <!-- Arrays -->
+    <string-array name="month_list">
+        <item name="january">01</item>
+        <item name="february">02</item>
+        <item name="march">03</item>
+        <item name="april">04</item>
+        <item name="may">05</item>
+        <item name="june">06</item>
+        <item name="july">07</item>
+        <item name="august">08</item>
+        <item name="september">09</item>
+        <item name="october">10</item>
+        <item name="november">11</item>
+        <item name="december">12</item>
+    </string-array>
+
+    <string-array name="year_list">
+        <item name="year_23">23</item>
+        <item name="year_24">24</item>
+        <item name="year_25">25</item>
+        <item name="year_26">26</item>
+        <item name="year_27">27</item>
+        <item name="year_28">28</item>
+        <item name="year_29">29</item>
+        <item name="year_30">30</item>
+        <item name="year_31">31</item>
+        <item name="year_32">32</item>
+        <item name="year_33">33</item>
+        <item name="year_34">34</item>
+    </string-array>
+
 </resources>

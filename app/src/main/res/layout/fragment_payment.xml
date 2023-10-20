@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragmentPayment_clCardDesign"
+        android:layout_width="275dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/credit_card_design"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/fragmentPayment_ivInCardChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/common_full_open_on_phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fragmentPayment_tvInCardName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="AD SOYAD"
+            android:textColor="#A8A8A8"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentPayment_ivInCardChip" />
+
+        <TextView
+            android:id="@+id/fragmentPayment_tvInCardCardNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:text="XXXX XXXX XXXX XXXX"
+            android:textColor="#A8A8A8"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentPayment_tvInCardName" />
+
+        <TextView
+            android:id="@+id/fragmentPayment_tvInCardValidThru"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="VALID\nTHRU"
+            android:textColor="#A8A8A8"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentPayment_tvInCardCardNumber" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text=":AA/YY"
+            android:textColor="#A8A8A8"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/fragmentPayment_tvInCardValidThru"
+            app:layout_constraintStart_toEndOf="@+id/fragmentPayment_tvInCardValidThru"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentPayment_tvInCardCardNumber" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/fragmentPayment_etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Kartta Yazan İsim Soyisim"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentPayment_clCardDesign" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/fragmentPayment_etCardNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Kart Numarası"
+        android:inputType="number"
+        android:maxLength="19"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentPayment_etName" />
+
+    <LinearLayout
+        android:id="@+id/fragmentPayment_spValidThruMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/fragmentPayment_etCVV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentPayment_etCardNumber">
+
+        <TextView
+            android:id="@+id/fragmentPayment_tvMonth"
+            android:textColor="#707070"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Ay" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/baseline_arrow_drop_down_24" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:textColor="#707070"
+        android:id="@+id/fragmentPayment_etSlash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="/"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/fragmentPayment_spValidThruMonth"
+        app:layout_constraintStart_toEndOf="@+id/fragmentPayment_spValidThruMonth" />
+
+    <LinearLayout
+        android:id="@+id/fragmentPayment_spValidThruYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/fragmentPayment_etSlash"
+        app:layout_constraintStart_toEndOf="@+id/fragmentPayment_etSlash">
+
+        <TextView
+            android:id="@+id/fragmentPayment_tvYear"
+            android:textColor="#707070"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Yıl" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/baseline_arrow_drop_down_24" />
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/fragmentPayment_etCVV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="CVV"
+        android:inputType="number"
+        android:maxLength="3"
+        app:layout_constraintStart_toEndOf="@+id/fragmentPayment_spValidThruYear"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentPayment_etCardNumber" />
+
+    <TextView
+        android:id="@+id/fragmentPayment_etDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="16sp"
+        android:text="Açık adresinizi aşağıdaki alana giriniz"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentPayment_spValidThruMonth" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/fragmentPayment_etAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Adres bilgilerini girin"
+        android:inputType="textMultiLine"
+        android:maxLines="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentPayment_etDescription" />
+
+    <Button
+        android:id="@+id/fragmentPayment_btnPayment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="Siparişi Tamamla"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentPayment_etAddress" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
