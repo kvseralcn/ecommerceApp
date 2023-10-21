@@ -1,5 +1,6 @@
 package com.pixelark.capstoneproject.adapter
 
+import android.graphics.Color
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -39,10 +40,13 @@ class CartAdapter constructor(
         holder.binding.cartProductItemTvProductName.text = cartProducts.title
         holder.binding.cartProductItemTvProductPrice.text =
             cartProducts.getPriceWithCurrency(Constants.Currency.TL)
-        holder.binding.cartProductItemTvProductSalePrice.text =
-            cartProducts.getSalePriceWithCurrency(Constants.Currency.TL)
 
-        holder.binding.cartProductItemTvProductSalePrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+        if (cartProducts.saleState == true) {
+            holder.binding.cartProductItemTvProductPrice.setTextColor(Color.RED)
+            holder.binding.cartProductItemTvProductSalePrice.text =
+                cartProducts.getSalePriceWithCurrency(Constants.Currency.TL)
+            holder.binding.cartProductItemTvProductPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+        }
 
         holder.itemView.setOnClickListener {
             cartClickListener.onClick(cartProducts)

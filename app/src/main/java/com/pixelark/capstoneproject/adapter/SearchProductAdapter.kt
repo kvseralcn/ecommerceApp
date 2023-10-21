@@ -1,5 +1,6 @@
 package com.pixelark.capstoneproject.adapter
 
+import android.graphics.Color
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -38,10 +39,13 @@ class SearchProductAdapter constructor(
         holder.binding.saleProductTvProductName.text = products.title
         holder.binding.saleProductTvProductPrice.text =
             products.getPriceWithCurrency(Constants.Currency.TL)
-        holder.binding.saleProductTvProductSalePrice.text =
-            products.getSalePriceWithCurrency(Constants.Currency.TL)
 
-        holder.binding.saleProductTvProductPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+        if (products.saleState == true) {
+            holder.binding.saleProductTvProductPrice.setTextColor(Color.RED)
+            holder.binding.saleProductTvProductSalePrice.text =
+                products.getSalePriceWithCurrency(Constants.Currency.TL)
+            holder.binding.saleProductTvProductPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+        }
 
         holder.itemView.setOnClickListener {
             searchProductClickListener.onSearchClick(products)

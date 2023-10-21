@@ -1,5 +1,6 @@
 package com.pixelark.capstoneproject.adapter
 
+import android.graphics.Color
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -38,10 +39,14 @@ class FavoriteProductAdapter constructor(
         holder.binding.productsItemTvProductName.text = products.title
         holder.binding.productsItemTvProductPrice.text =
             products.getPriceWithCurrency(Constants.Currency.TL)
-        holder.binding.productsItemTvProductSalePrice.text =
-            products.getSalePriceWithCurrency(Constants.Currency.TL)
 
-        holder.binding.productsItemTvProductPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+        if (products.saleState == true) {
+            holder.binding.productsItemTvProductPrice.setTextColor(Color.RED)
+            holder.binding.productsItemTvProductSalePrice.text =
+                products.getSalePriceWithCurrency(Constants.Currency.TL)
+            holder.binding.productsItemTvProductPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+        }
+
         holder.itemView.setOnClickListener {
             favoriteProductClickListener.onClick(products)
         }
