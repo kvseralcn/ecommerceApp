@@ -39,8 +39,14 @@ class SignInFragment : BaseFragment<FragmentSigninBinding, SignInViewModel>(
             val password = binding.fragmentSignInEtPassword.editText?.text.toString()
             val emailValidationResult = EmailInputValidation.validate(
                 email,
-                EmailInputValidationData(errorMessage = "Email hatalı")
+                EmailInputValidationData(errorMessage = "E-mail hatalı")
             )
+            if (password.length < 6) {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.password_too_short), Toast.LENGTH_SHORT
+                ).show()
+            }
             if (emailValidationResult.isSuccess) {
                 viewModel.signIn(email, password)
                 /**

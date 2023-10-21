@@ -38,6 +38,12 @@ class SignUpFragment : BaseFragment<FragmentSignupBinding, SignUpViewModel>(
                     getString(R.string.password_mismatch_error), Toast.LENGTH_SHORT
                 ).show()
             }
+            if (password.length < 6) {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.password_too_short), Toast.LENGTH_SHORT
+                ).show()
+            }
             val emailValidationResult =
                 EmailInputValidation.validate(email, EmailInputValidationData("Error"))
             if (emailValidationResult.isSuccess) {
