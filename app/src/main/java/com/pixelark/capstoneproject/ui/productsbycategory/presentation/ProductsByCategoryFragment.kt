@@ -2,7 +2,7 @@ package com.pixelark.capstoneproject.ui.productsbycategory.presentation
 
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.pixelark.capstoneproject.adapter.ProductCategoryClickListener
 import com.pixelark.capstoneproject.adapter.ProductsByCategoryAdapter
 import com.pixelark.capstoneproject.core.BaseFragment
@@ -21,7 +21,7 @@ class ProductsByCategoryFragment :
 
     override fun onFragmentStarted() {
         binding.fragmentProductsByCategoryRvProductsByCategoryRecyclerView.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         viewModel.getProductsByCategory(argsCategory.data)
         viewModel.byCategoryData.observe(this) { response ->

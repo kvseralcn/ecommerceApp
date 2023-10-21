@@ -1,7 +1,7 @@
 package com.pixelark.capstoneproject.ui.favorite.presentation
 
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.pixelark.capstoneproject.adapter.FavoriteProductAdapter
 import com.pixelark.capstoneproject.adapter.FavoriteProductClickListener
 import com.pixelark.capstoneproject.core.BaseFragment
@@ -21,7 +21,7 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding, FavoriteViewModel
     private lateinit var favoriteProductAdapter: FavoriteProductAdapter
     override fun onFragmentStarted() {
         binding.fragmentHomeRvFavoriteProductRecyclerView.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         CoroutineScope(Dispatchers.IO).launch {
             val favoriteProducts = viewModel.getFavoriteProducts()

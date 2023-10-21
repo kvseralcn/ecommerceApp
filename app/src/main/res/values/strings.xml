@@ -12,6 +12,7 @@
     <string name="email">E-posta</string>
     <string name="password">Şifre</string>
     <string name="password_mismatch_error">Şifreler eşleşmiyor!</string>
+    <string name="password_too_short">Şifre en az 6 karakter uzunluğunda olmalıdır!</string>
     <string name="email_error">E-posta hatalı</string>
     <string name="home">Anasayfa</string>
     <string name="cart">Sepetim</string>

@@ -2,6 +2,7 @@ package com.pixelark.capstoneproject.ui.home.presentation
 
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.pixelark.capstoneproject.adapter.CategoryAdapter
 import com.pixelark.capstoneproject.adapter.CategoryClickListener
 import com.pixelark.capstoneproject.adapter.FavoriteProductClickListener
@@ -27,7 +28,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         binding.fragmentHomeRvCategoryRecyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.fragmentHomeRvProductRecyclerView.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         viewModel.getSaleProducts()
         viewModel.saleProductsData.observe(this) { response ->

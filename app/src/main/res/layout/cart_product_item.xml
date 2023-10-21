@@ -58,7 +58,6 @@
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
                         android:maxLines="2"
-                        android:text="Başlık Başlık Başlık Başlık Başlık Başlık Başlık"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/cartProductItem_ivDelete"
                         app:layout_constraintStart_toStartOf="parent"
@@ -80,8 +79,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:ellipsize="end"
-                    android:text="fiyat1"
-                    android:textColor="@color/red"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cartProductItem_clHeader" />
 
@@ -92,9 +89,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="16dp"
                     android:ellipsize="end"
-                    android:text="fiyat2"
                     android:textColor="@color/green"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cartProductItem_tvProductPrice" />
