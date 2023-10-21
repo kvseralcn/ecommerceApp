@@ -43,6 +43,10 @@ android {
 }
 
 dependencies {
+    //Chucker
+    debugImplementation("com.github.chuckerteam.chucker:library:4.0.0")
+    releaseImplementation("com.github.chuckerteam.chucker:library-no-op:4.0.0")
+
     //Lottie
     implementation("com.airbnb.android:lottie:6.1.0")
 

@@ -1,5 +1,7 @@
 package com.pixelark.capstoneproject.core.di
 
+import android.content.Context
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.google.firebase.BuildConfig
 import com.pixelark.capstoneproject.core.service.RetrofitStoreApi
 import com.squareup.moshi.Moshi
@@ -7,6 +9,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -25,18 +28,19 @@ object RetrofitAppModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(): Retrofit {
+    fun provideRetrofit(@ApplicationContext context: Context): Retrofit {
         return Retrofit.Builder()
-            .client(provideOKHTTP())
+            .client(provideOKHTTP(context))
             .baseUrl(BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create(createMoshi()))
             .build()
     }
 
     @Provides
-    fun provideOKHTTP(): OkHttpClient {
+    fun provideOKHTTP(context: Context): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE))
+            .addInterceptor(ChuckerInterceptor.Builder(context).build())
             .build()
     }
 
