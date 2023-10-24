@@ -60,7 +60,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
             setProductAdapter(response.products)
         }
 
-        showCampaign()
+        if (!viewModel.campaignShown) {
+            showCampaign()
+            viewModel.campaignShown = true
+        }
     }
 
     private fun showCampaign() {
@@ -88,7 +91,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
 
         firebaseRemoteConfig.fetchAndActivate().addOnCompleteListener {
             if (it.isSuccessful) {
-                val textFromRemoteConfig = firebaseRemoteConfig.getString("campaign")
+                //val textFromRemoteConfig = firebaseRemoteConfig.getString("campaign")
                 val imageFromRemoteConfig = firebaseRemoteConfig.getString("image")
                 //dialogBinding.customCampaignDialogTvInfo.text = textFromRemoteConfig
                 Glide.with(this)

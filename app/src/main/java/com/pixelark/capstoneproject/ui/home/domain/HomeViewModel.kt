@@ -17,6 +17,8 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val storeRepository: StoreRepository) :
     BaseViewModel() {
+    var campaignShown: Boolean = false
+
     companion object {
         const val TAG = "HomeViewModel"
     }
