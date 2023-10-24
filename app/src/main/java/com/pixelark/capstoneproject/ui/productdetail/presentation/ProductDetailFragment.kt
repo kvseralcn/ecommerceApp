@@ -36,7 +36,7 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailsBinding, Produc
             initProductDetail(response)
         }
 
-        binding.fragmentProductDetailsBtnFavorite.setOnClickListener {
+        binding.favoriteAnimationView.setOnClickListener {
             viewModel.productDetailData.value?.let { response ->
                 val selectedProductId = response.product.id
 
@@ -46,6 +46,7 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailsBinding, Produc
 
                     withContext(Dispatchers.Main) {
                         if (isProductInFavorites) {
+                            binding.favoriteAnimationView.progress = 0f
                             viewModel.deleteProduct(response.product.id)
                             Toast.makeText(
                                 requireContext(),
@@ -53,6 +54,9 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailsBinding, Produc
                                 Toast.LENGTH_SHORT
                             ).show()
                         } else {
+                            if (!binding.favoriteAnimationView.isAnimating) {
+                                binding.favoriteAnimationView.playAnimation()
+                            }
                             viewModel.insertProduct(response.product)
                         }
                     }

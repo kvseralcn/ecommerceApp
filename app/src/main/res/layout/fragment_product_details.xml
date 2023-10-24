@@ -26,16 +26,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/fragmentProductDetails_btnFavorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/favoriteAnimationView"
         android:layout_gravity="end|top"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:src="@drawable/baseline_favorite_border_24"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:clickable="true"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/favorite" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragmentProductDetail_clDetail"
