@@ -1,5 +1,6 @@
 package com.pixelark.capstoneproject.ui.productdetail.presentation
 
+import android.animation.Animator
 import android.graphics.Paint
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -11,6 +12,7 @@ import com.pixelark.capstoneproject.R
 import com.pixelark.capstoneproject.core.BaseFragment
 import com.pixelark.capstoneproject.core.data.AddToCartRequest
 import com.pixelark.capstoneproject.core.data.ProductDetailResponse
+import com.pixelark.capstoneproject.core.data.ProductModel
 import com.pixelark.capstoneproject.databinding.FragmentProductDetailsBinding
 import com.pixelark.capstoneproject.ui.productdetail.domain.ProductDetailViewModel
 import com.pixelark.capstoneproject.util.Constants
@@ -20,48 +22,24 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class ProductDetailFragment : BaseFragment<FragmentProductDetailsBinding, ProductDetailViewModel>(
     FragmentProductDetailsBinding::inflate, ProductDetailViewModel::class.java
 ) {
 
+    private var favoriteProducts: List<ProductModel> = emptyList()
+    private var isProductInFavorites: Boolean = false
     private val args by navArgs<ProductDetailFragmentArgs>()
 
     override fun onFragmentStarted() {
         addOnBackPressedActions()
+        CoroutineScope(Dispatchers.IO).launch {
+            favoriteProducts = viewModel.getFavoriteProducts()
+        }
         viewModel.getProductDetail(args.productId)
         viewModel.productDetailData.observe(this) { response ->
             initProductDetail(response)
-        }
-
-        binding.favoriteAnimationView.setOnClickListener {
-            viewModel.productDetailData.value?.let { response ->
-                val selectedProductId = response.product.id
-
-                CoroutineScope(Dispatchers.IO).launch {
-                    val favoriteProducts = viewModel.getFavoriteProducts()
-                    val isProductInFavorites = favoriteProducts.any { it.id == selectedProductId }
-
-                    withContext(Dispatchers.Main) {
-                        if (isProductInFavorites) {
-                            binding.favoriteAnimationView.progress = 0f
-                            viewModel.deleteProduct(response.product.id)
-                            Toast.makeText(
-                                requireContext(),
-                                "Bu ürün favori listesinden çıkarıldı",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        } else {
-                            if (!binding.favoriteAnimationView.isAnimating) {
-                                binding.favoriteAnimationView.playAnimation()
-                            }
-                            viewModel.insertProduct(response.product)
-                        }
-                    }
-                }
-            }
         }
 
         viewModel.favoriteInsertLiveData.observe(viewLifecycleOwner) { isSuccess ->
@@ -69,6 +47,9 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailsBinding, Produc
                 if (isSuccess) getString(R.string.add_favorite_success)
                 else getString(R.string.add_favorite_error)
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+            CoroutineScope(Dispatchers.IO).launch {
+                favoriteProducts = viewModel.getFavoriteProducts()
+            }
         }
 
         binding.fragmentPersonalInformationBtnAddCart.setOnClickListener {
@@ -146,6 +127,47 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailsBinding, Produc
                 Paint.STRIKE_THRU_TEXT_FLAG
             binding.fragmentProductDetailsTvSaleProductSalePrice.text =
                 response.product.getSalePriceWithCurrency(Constants.Currency.TL)
+        }
+
+        //Favorite
+        isProductInFavorites = favoriteProducts.any { it.id == response.product.id }
+        if (isProductInFavorites) {
+            binding.favoriteAnimationView.progress = 1f
+        }
+
+        binding.favoriteAnimationView.addAnimatorListener(object : Animator.AnimatorListener {
+
+            override fun onAnimationStart(animation: Animator) {
+                binding.favoriteAnimationView.isEnabled = false
+            }
+
+            override fun onAnimationEnd(animation: Animator) {
+                binding.favoriteAnimationView.isEnabled = true
+            }
+
+            override fun onAnimationCancel(animation: Animator) {
+            }
+
+            override fun onAnimationRepeat(animation: Animator) {
+            }
+        })
+
+        binding.favoriteAnimationView.setOnClickListener {
+            isProductInFavorites = favoriteProducts.any { it.id == response.product.id }
+            if (isProductInFavorites) {
+                binding.favoriteAnimationView.progress = 0f
+                viewModel.deleteProduct(response.product.id)
+                Toast.makeText(
+                    requireContext(),
+                    "Bu ürün favori listesinden çıkarıldı",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                if (!binding.favoriteAnimationView.isAnimating) {
+                    binding.favoriteAnimationView.playAnimation()
+                }
+                viewModel.insertProduct(response.product)
+            }
         }
     }
 }
