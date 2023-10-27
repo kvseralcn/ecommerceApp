@@ -1,12 +1,15 @@
 package com.pixelark.capstoneproject.ui.payment.presentation
 
 import android.app.Dialog
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.Gravity
+import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -34,12 +37,14 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding, PaymentViewModel>(
             )
         )
         binding.fragmentPaymentTvMonth.setOnClickListener {
+            hideKeyboard(it)
             showBottomDialog(R.array.month_list) { selectedMonth ->
                 this.selectedMonth = selectedMonth
                 binding.fragmentPaymentTvMonth.text = selectedMonth
             }
         }
         binding.fragmentPaymentTvYear.setOnClickListener {
+            hideKeyboard(it)
             showBottomDialog(R.array.year_list) { selectedYear ->
                 this.selectedYear = selectedYear
                 binding.fragmentPaymentTvYear.text = selectedYear
@@ -78,6 +83,12 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding, PaymentViewModel>(
 
             }
         }
+    }
+
+    private fun hideKeyboard(view: View) {
+        val inputMethodManager =
+            view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     private fun isPageValid(): Boolean {
