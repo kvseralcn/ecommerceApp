@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.pixelark.capstoneproject.ui.home.presentation.HomeFragment"
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_productsByCategoryFragment"
+            app:destination="@id/productsByCategoryFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/productsByCategoryFragment"
+        android:name="com.pixelark.capstoneproject.ui.productsbycategory.presentation.ProductsByCategoryFragment"
+        android:label="ProductsByCategoryFragment">
+        <action
+            android:id="@+id/action_productsByCategoryFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <argument
+            android:name="data"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.pixelark.capstoneproject.ui.productdetail.presentation.ProductDetailFragment"
+        android:label="ProductDetailFragment">
+        <argument
+            android:name="productId"
+            app:argType="integer" />
+    </fragment>
+</navigation>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cart_graph"
+    app:startDestination="@id/cartFragment">
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.pixelark.capstoneproject.ui.cart.presentation.CartFragment"
+        android:label="CartFragment">
+        <argument
+            android:name="data"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_cartFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.pixelark.capstoneproject.ui.payment.presentation.PaymentFragment"
+        android:label="PaymentFragment">
+        <action
+            android:id="@+id/action_paymentFragment_to_paymentCompleteFragment"
+            app:destination="@id/paymentCompleteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentCompleteFragment"
+        android:name="com.pixelark.capstoneproject.ui.paymentcomplete.presentation.PaymentCompleteFragment"
+        android:label="PaymentCompleteFragment">
+        <action
+            android:id="@+id/action_paymentCompleteFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.pixelark.capstoneproject.ui.productdetail.presentation.ProductDetailFragment"
+        android:label="ProductDetailFragment">
+        <argument
+            android:name="productId"
+            app:argType="integer" />
+    </fragment>
+</navigation>

@@ -28,14 +28,18 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding, PaymentViewModel>(
     private var selectedYear: String? = null
 
     override fun onFragmentStarted() {
-        binding.fragmentPaymentEtCardNumber.addTextChangedListener(CardNumberTextWatcher(binding.fragmentPaymentEtCardNumber))
-        binding.fragmentPaymentSpValidThruMonth.setOnClickListener {
+        binding.fragmentPaymentEtCardNumber.editText?.addTextChangedListener(
+            CardNumberTextWatcher(
+                binding.fragmentPaymentEtCardNumber.editText!!
+            )
+        )
+        binding.fragmentPaymentTvMonth.setOnClickListener {
             showBottomDialog(R.array.month_list) { selectedMonth ->
                 this.selectedMonth = selectedMonth
                 binding.fragmentPaymentTvMonth.text = selectedMonth
             }
         }
-        binding.fragmentPaymentSpValidThruYear.setOnClickListener {
+        binding.fragmentPaymentTvYear.setOnClickListener {
             showBottomDialog(R.array.year_list) { selectedYear ->
                 this.selectedYear = selectedYear
                 binding.fragmentPaymentTvYear.text = selectedYear
@@ -44,8 +48,7 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding, PaymentViewModel>(
         binding.fragmentPaymentBtnPayment.setOnClickListener {
             if (isPageValid()) {
                 findNavController().navigate(
-                    PaymentFragmentDirections
-                        .actionPaymentFragmentToPaymentCompleteFragment()
+                    PaymentFragmentDirections.actionPaymentFragmentToPaymentCompleteFragment()
                 )
             } else {
                 val dialogBinding = CustomAlertDialogBinding.inflate(layoutInflater)
@@ -59,13 +62,11 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding, PaymentViewModel>(
                 layoutParams?.height = WindowManager.LayoutParams.MATCH_PARENT
                 window?.attributes = layoutParams
                 myDialog.window!!.setLayout(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
                 )
                 myDialog.window!!.setBackgroundDrawable(
                     ContextCompat.getDrawable(
-                        requireContext(),
-                        R.drawable.bottom_sheet_background_tint
+                        requireContext(), R.drawable.bottom_sheet_background_tint
                     )
                 )
                 myDialog.window!!.setGravity(Gravity.CENTER)
@@ -87,24 +88,29 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding, PaymentViewModel>(
         if (selectedYear == null) {
             isValid = false
         }
-        if (binding.fragmentPaymentEtName.text?.isEmpty() == true) {
+        if (binding.fragmentPaymentEtName.editText?.text?.isEmpty() == true) {
             isValid = false
         }
-        if (binding.fragmentPaymentEtCardNumber.text?.isEmpty() == true) {
+        if (binding.fragmentPaymentEtCardNumber.editText?.text?.isEmpty() == true
+            ||
+            binding.fragmentPaymentEtCardNumber.editText?.text?.length != 19
+        ) {
             isValid = false
         }
-        if (binding.fragmentPaymentEtCVV.text?.isEmpty() == true) {
+        if (binding.fragmentPaymentEtCVV.editText?.text?.isEmpty() == true
+            ||
+            binding.fragmentPaymentEtCVV.editText?.text?.length != 3
+        ) {
             isValid = false
         }
-        if (binding.fragmentPaymentEtAddress.text?.isEmpty() == true) {
+        if (binding.fragmentPaymentEtAddress.editText?.text?.isEmpty() == true) {
             isValid = false
         }
         return isValid
     }
 
     private fun showBottomDialog(
-        arrayResource: Int,
-        onValueSelected: (String) -> Unit
+        arrayResource: Int, onValueSelected: (String) -> Unit
     ) {
         val bottomSheetBinding = BottomSheetValidThruBinding.inflate(layoutInflater)
         val dialog = BottomSheetDialog(requireContext())
@@ -112,13 +118,11 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding, PaymentViewModel>(
         dialog.setContentView(bottomSheetBinding.root)
         dialog.show()
         dialog.window!!.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.MATCH_PARENT
+            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
         )
         dialog.window!!.setBackgroundDrawable(
             ContextCompat.getDrawable(
-                requireContext(),
-                R.drawable.bottom_sheet_background_tint
+                requireContext(), R.drawable.bottom_sheet_background_tint
             )
         )
         dialog.window!!.setGravity(Gravity.BOTTOM)

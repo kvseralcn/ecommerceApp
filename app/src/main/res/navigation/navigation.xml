@@ -4,6 +4,11 @@
     android:id="@+id/navigation"
     app:startDestination="@id/signInFragment">
 
+    <include app:graph="@navigation/home_graph" />
+    <include app:graph="@navigation/search_graph" />
+    <include app:graph="@navigation/cart_graph" />
+    <include app:graph="@navigation/favorites_graph" />
+
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.pixelark.capstoneproject.ui.signup.presentation.SignUpFragment"
@@ -17,80 +22,11 @@
             app:destination="@id/signUpFragment" />
     </fragment>
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.pixelark.capstoneproject.ui.home.presentation.HomeFragment"
-        android:label="HomeFragment">
-        <action
-            android:id="@+id/action_homeFragment_to_productDetailFragment"
-            app:destination="@id/productDetailFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_productsByCategoryFragment"
-            app:destination="@id/productsByCategoryFragment" />
-
-    </fragment>
-    <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.pixelark.capstoneproject.ui.search.presentation.SearchFragment"
-        android:label="SearchFragment">
-        <action
-            android:id="@+id/action_searchFragment_to_productDetailFragment"
-            app:destination="@id/productDetailFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/cartFragment"
-        android:name="com.pixelark.capstoneproject.ui.cart.presentation.CartFragment"
-        android:label="CartFragment">
-        <argument
-            android:name="data"
-            app:argType="integer" />
-        <action
-            android:id="@+id/action_cartFragment_to_productDetailFragment"
-            app:destination="@id/productDetailFragment" />
-        <action
-            android:id="@+id/action_cartFragment_to_paymentFragment"
-            app:destination="@id/paymentFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/favoriteFragment"
-        android:name="com.pixelark.capstoneproject.ui.favorite.presentation.FavoriteFragment"
-        android:label="FavoriteFragment">
-        <action
-            android:id="@+id/action_favoriteFragment_to_productDetailFragment"
-            app:destination="@id/productDetailFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/productDetailFragment"
         android:name="com.pixelark.capstoneproject.ui.productdetail.presentation.ProductDetailFragment"
         android:label="ProductDetailFragment">
         <argument
             android:name="productId"
             app:argType="integer" />
-    </fragment>
-    <fragment
-        android:id="@+id/productsByCategoryFragment"
-        android:name="com.pixelark.capstoneproject.ui.productsbycategory.presentation.ProductsByCategoryFragment"
-        android:label="ProductsByCategoryFragment">
-        <action
-            android:id="@+id/action_productsByCategoryFragment_to_productDetailFragment"
-            app:destination="@id/productDetailFragment" />
-        <argument
-            android:name="data"
-            app:argType="string" />
-    </fragment>
-    <fragment
-        android:id="@+id/paymentFragment"
-        android:name="com.pixelark.capstoneproject.ui.payment.presentation.PaymentFragment"
-        android:label="PaymentFragment">
-        <action
-            android:id="@+id/action_paymentFragment_to_paymentCompleteFragment"
-            app:destination="@id/paymentCompleteFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/paymentCompleteFragment"
-        android:name="com.pixelark.capstoneproject.ui.paymentcomplete.presentation.PaymentCompleteFragment"
-        android:label="PaymentCompleteFragment">
-        <action
-            android:id="@+id/action_paymentCompleteFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

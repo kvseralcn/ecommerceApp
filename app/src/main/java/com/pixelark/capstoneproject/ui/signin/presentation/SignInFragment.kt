@@ -18,7 +18,7 @@ class SignInFragment : BaseFragment<FragmentSigninBinding, SignInViewModel>(
     override fun onFragmentStarted() {
 
         if (FirebaseAuth.getInstance().currentUser != null) {
-            findNavController().navigate(R.id.homeFragment)
+            findNavController().navigate(R.id.home_graph)
         }
         viewModel.authResult.observe(this) {
             if (it.isSuccess) {
