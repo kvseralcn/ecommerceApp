@@ -33,24 +33,29 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>(
         viewModel.cartProductsData.observe(this) { response ->
             setCartAdapter(response.products)
 
-            var subTotal = 0.0
-            var shipping = 0.125
-            var totalPayment = 0.0
-            val convertedValue = shipping * 1000
+            if (response.products.isNotEmpty()) {
+                var subTotal = 0.0
+                var shipping = 0.125
+                var totalPayment = 0.0
+                val convertedValue = shipping * 1000
 
-            for (i in 0 until response.products.size) {
-                subTotal += if (response.products[i].saleState == true) {
-                    response.products[i].salePrice ?: 0.0
-                } else {
-                    response.products[i].price ?: 0.0
+                for (i in 0 until response.products.size) {
+                    subTotal += if (response.products[i].saleState == true) {
+                        response.products[i].salePrice ?: 0.0
+                    } else {
+                        response.products[i].price ?: 0.0
+                    }
                 }
+
+                totalPayment = subTotal + shipping
+                binding.fragmentCartTvSubTotal.text = subTotal.toString()
+                binding.fragmentCartTvShipping.text = convertedValue.toInt().toString()
+                binding.fragmentCartTvTotalPayment.text = totalPayment.toString()
+            } else {
+                binding.fragmentCartTvSubTotal.text = "0.0"
+                binding.fragmentCartTvShipping.text = "0.0"
+                binding.fragmentCartTvTotalPayment.text = "0.0"
             }
-
-            totalPayment = subTotal + shipping
-            binding.fragmentCartTvSubTotal.text = subTotal.toString()
-            binding.fragmentCartTvShipping.text = convertedValue.toInt().toString()
-            binding.fragmentCartTvTotalPayment.text = totalPayment.toString()
-
             binding.fragmentCartBtnPayment.setOnClickListener {
                 val action =
                     CartFragmentDirections.actionCartFragmentToPaymentFragment()
