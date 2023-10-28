@@ -1,8 +1,11 @@
 package com.pixelark.capstoneproject.ui.paymentcomplete.presentation
 
+import android.util.Log
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import com.pixelark.capstoneproject.R
 import com.pixelark.capstoneproject.core.BaseFragment
+import com.pixelark.capstoneproject.core.data.ClearCartRequest
 import com.pixelark.capstoneproject.databinding.FragmentSuccessBinding
 import com.pixelark.capstoneproject.ui.paymentcomplete.domain.PaymentCompleteViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,9 +18,20 @@ class PaymentCompleteFragment : BaseFragment<FragmentSuccessBinding, PaymentComp
         binding.fragmentSuccessBtnPayment.setOnClickListener {
             findNavController().popBackStack(R.id.homeFragment, false)
 
-            //TODO ödeme tamamlanınca payment sayfasında sepeti temizle
-            //TODO payment sayfasında ay yıl girerken klavyeyi kapat
-            //TODO sayfada geri gelme durumlarını kontrol et anasayfada geri gelirse uygulamayı kapatsın
+            clearCart()
+        }
+    }
+
+    private fun clearCart() {
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            viewModel.deleteAllProducts(ClearCartRequest(user.uid))
+        }
+
+        viewModel.deleteAllProductsData.observe(requireActivity()) { response ->
+            if (response.status == 200) {
+                Log.d("TAG", "Sepet temizlendi.")
+            }
         }
     }
 }
