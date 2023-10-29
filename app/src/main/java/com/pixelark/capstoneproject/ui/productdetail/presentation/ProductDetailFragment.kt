@@ -1,6 +1,7 @@
 package com.pixelark.capstoneproject.ui.productdetail.presentation
 
 import android.animation.Animator
+import android.graphics.Color
 import android.graphics.Paint
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -121,10 +122,12 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailsBinding, Produc
         //Set price
         binding.fragmentProductDetailsTvProductPrice.text =
             response.product.getPriceWithCurrency(Constants.Currency.TL)
+        binding.fragmentProductDetailsTvProductPrice.textSize = 20F
         if (response.product.saleState == true) {
             binding.fragmentProductDetailsTvSaleProductSalePrice.isVisible = true
             binding.fragmentProductDetailsTvProductPrice.paintFlags =
                 Paint.STRIKE_THRU_TEXT_FLAG
+            binding.fragmentProductDetailsTvProductPrice.setTextColor(Color.RED)
             binding.fragmentProductDetailsTvSaleProductSalePrice.text =
                 response.product.getSalePriceWithCurrency(Constants.Currency.TL)
         }
