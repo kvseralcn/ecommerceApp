@@ -53,18 +53,29 @@ class CartAdapter constructor(
         }
 
         holder.binding.cartProductItemIvDelete.setOnClickListener() {
-            cartDeleteClickListener.onClickDelete(cartProducts)
-
             cartProductList.removeAt(position)
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, cartProductList.size)
-            notifyDataSetChanged()
+            //notifyDataSetChanged()
+            cartDeleteClickListener.onClickDelete(cartProducts)
         }
     }
 
     fun clearList() {
         cartProductList.clear()
         notifyDataSetChanged()
+    }
+
+    fun getTotalAmount(): Double {
+        var subTotal = 0.0
+        for (item in cartProductList) {
+            subTotal += if (item.saleState == true) {
+                item.salePrice ?: 0.0
+            } else {
+                item.price ?: 0.0
+            }
+        }
+        return subTotal
     }
 }
 
