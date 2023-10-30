@@ -37,6 +37,7 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>(
                 setAmounts()
             } else {
                 clearPaymentData()
+                // TODO ödeme yap butonunu deaktif et
             }
             binding.fragmentCartBtnPayment.setOnClickListener {
                 val action =
@@ -73,9 +74,9 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>(
         var totalPayment = 0.0
         val convertedValue = shipping * 1000
         totalPayment = cartAdapter.getTotalAmount() + shipping
-        binding.fragmentCartTvSubTotal.text = cartAdapter.getTotalAmount().toString()
+        binding.fragmentCartTvSubTotal.text = String.format("%.3f", cartAdapter.getTotalAmount())
         binding.fragmentCartTvShipping.text = convertedValue.toInt().toString()
-        binding.fragmentCartTvTotalPayment.text = totalPayment.toString()
+        binding.fragmentCartTvTotalPayment.text = String.format("%.3f", totalPayment)
     }
 
     private fun clearPaymentData() {
