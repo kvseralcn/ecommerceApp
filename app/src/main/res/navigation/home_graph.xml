@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_productsByCategoryFragment"
             app:destination="@id/productsByCategoryFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_userFragment"
+            app:destination="@id/userFragment" />
 
     </fragment>
     <fragment
@@ -34,4 +37,8 @@
             android:name="productId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.pixelark.capstoneproject.ui.user.presentation.UserFragment"
+        android:label="UserFragment" />
 </navigation>

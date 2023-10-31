@@ -1,6 +1,7 @@
 package com.pixelark.capstoneproject.core.di
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
 import com.pixelark.capstoneproject.R
@@ -18,6 +19,10 @@ class FirebaseModule {
     fun provideFirebaseAuth(): FirebaseAuth {
         return FirebaseAuth.getInstance()
     }
+
+    @Provides
+    @Singleton
+    fun provideFirestore() = FirebaseFirestore.getInstance()
 
     @Provides
     @Singleton

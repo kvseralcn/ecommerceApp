@@ -9,6 +9,17 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
+        <ImageButton
+            android:id="@+id/fragmentHome_btnUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_account_circle_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/fragmentHome_tvSaleProductTitle"
             android:layout_width="wrap_content"

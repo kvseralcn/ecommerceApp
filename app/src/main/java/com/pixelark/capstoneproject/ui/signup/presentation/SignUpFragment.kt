@@ -1,6 +1,7 @@
 package com.pixelark.capstoneproject.ui.signup.presentation
 
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.pixelark.capstoneproject.R
 import com.pixelark.capstoneproject.core.BaseFragment
 import com.pixelark.capstoneproject.databinding.FragmentSignupBinding
@@ -14,13 +15,13 @@ class SignUpFragment : BaseFragment<FragmentSignupBinding, SignUpViewModel>(
     FragmentSignupBinding::inflate, SignUpViewModel::class.java
 ) {
     override fun onFragmentStarted() {
-        viewModel.authResult.observe(this) {
-            if (it.isSuccess) {
-                Toast.makeText(requireContext(), "Success!", Toast.LENGTH_SHORT).show()
+        viewModel.signUpResult.observe(this) { dataOrException ->
+            if (dataOrException.data == true) {
+                findNavController().navigate(R.id.homeFragment)
             } else {
                 Toast.makeText(
                     requireContext(),
-                    "Error: ${it.exceptionOrNull()}",
+                    dataOrException.e?.message,
                     Toast.LENGTH_LONG
                 ).show()
             }
@@ -32,22 +33,26 @@ class SignUpFragment : BaseFragment<FragmentSignupBinding, SignUpViewModel>(
             val email = binding.fragmentSignUpEtEmail.editText?.text.toString()
             val password = binding.fragmentSignUpEtPassword.editText?.text.toString()
             val confirmPassword = binding.fragmentSignUpEtConfirmPassword.editText?.text.toString()
+
+            //TODO: bu kodu passwordInputvalidatına yaz
             if (password != confirmPassword) {
                 Toast.makeText(
                     requireContext(),
                     getString(R.string.password_mismatch_error), Toast.LENGTH_SHORT
                 ).show()
             }
+
             if (password.length < 6) {
                 Toast.makeText(
                     requireContext(),
                     getString(R.string.password_too_short), Toast.LENGTH_SHORT
                 ).show()
             }
+
             val emailValidationResult =
                 EmailInputValidation.validate(email, EmailInputValidationData("Error"))
-            if (emailValidationResult.isSuccess) {
-                viewModel.signUp(email, password)
+            if (emailValidationResult.isSuccess && password.length >= 6) {
+                viewModel.signUp(email, password, name, surname)
             } else {
                 Toast.makeText(
                     requireContext(),

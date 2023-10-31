@@ -75,6 +75,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
             setProductAdapter(response.products)
         }
         fetchRemoteConfig()
+
+        binding.fragmentHomeBtnUser.setOnClickListener {
+            findNavController().navigate(R.id.userFragment)
+        }
     }
 
     private fun fetchRemoteConfig() {
