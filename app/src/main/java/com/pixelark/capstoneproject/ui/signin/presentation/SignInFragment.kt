@@ -23,6 +23,7 @@ class SignInFragment : BaseFragment<FragmentSigninBinding, SignInViewModel>(
         viewModel.authResult.observe(this) {
             if (it.isSuccess) {
                 Toast.makeText(requireContext(), "Success!", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.homeFragment)
             } else {
                 binding.fragmentSignInEtEmail.editText?.text = null
                 binding.fragmentSignInEtPassword.editText?.text = null
@@ -49,10 +50,6 @@ class SignInFragment : BaseFragment<FragmentSigninBinding, SignInViewModel>(
             }
             if (emailValidationResult.isSuccess) {
                 viewModel.signIn(email, password)
-                /**
-                 * email: kevser@ali.com
-                 * şifre: 123456
-                 **/
             } else {
                 Toast.makeText(
                     requireContext(),
@@ -60,7 +57,6 @@ class SignInFragment : BaseFragment<FragmentSigninBinding, SignInViewModel>(
                     Toast.LENGTH_LONG
                 ).show()
             }
-            findNavController().navigate(R.id.homeFragment)
         }
         binding.fragmentSignInIvContinueButton.setOnClickListener {
             findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
