@@ -1,14 +1,18 @@
 package com.pixelark.capstoneproject.core.repository
 
-import android.util.Log
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.pixelark.capstoneproject.core.data.UserModel
+import com.pixelark.capstoneproject.repository.auth.AuthenticationRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 
+
 @Singleton
 class FirestoreRepository @Inject constructor(
-    private val firestore: FirebaseFirestore
+    private val firestore: FirebaseFirestore,
+    private val firebaseUser: FirebaseAuth,
+    private val authenticationRepository: AuthenticationRepository
 ) {
     fun createUser(
         userModel: UserModel,
@@ -18,11 +22,9 @@ class FirestoreRepository @Inject constructor(
         firestore.collection("users").document(userModel.id)
             .set(userModel)
             .addOnSuccessListener {
-                Log.d("FirestoreOldu", "Firestore kaydettim")
                 onSuccess()
             }
             .addOnFailureListener { e ->
-                Log.e("FirestoreHata", "Firestore kayıt hatası", e)
                 onError(e)
             }
     }
@@ -40,11 +42,28 @@ class FirestoreRepository @Inject constructor(
                     if (userModel != null) {
                         onSuccess(userModel)
                     } else {
-                        onError(Exception("Belge verisi çözümlenemedi."))
+                        onError(Exception())
                     }
                 } else {
-                    onError(Exception("Belge bulunamadı."))
+                    onError(Exception())
                 }
+            }
+            .addOnFailureListener { e ->
+                onError(e)
+            }
+    }
+
+    fun updateUser(
+        userMap: HashMap<String, Any>,
+        onError: (Exception) -> Unit,
+        onSuccess: () -> Unit
+    ) {
+        val userId = firebaseUser.currentUser?.uid!!
+        val userRef = firestore.collection("users").document(userId)
+        userRef
+            .update(userMap)
+            .addOnSuccessListener {
+                onSuccess()
             }
             .addOnFailureListener { e ->
                 onError(e)

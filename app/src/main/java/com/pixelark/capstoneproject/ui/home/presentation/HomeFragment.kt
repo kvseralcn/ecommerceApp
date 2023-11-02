@@ -77,7 +77,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         fetchRemoteConfig()
 
         binding.fragmentHomeBtnUser.setOnClickListener {
-            findNavController().navigate(R.id.userFragment)
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToUserFragment())
         }
     }
 

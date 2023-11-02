@@ -55,4 +55,20 @@ class UserViewModel @Inject constructor(
         }
     }
 
+    fun updateUser(userMap: HashMap<String, Any>) {
+        viewModelScope.launch {
+            val userId = auth.uid
+            if (!userId.isNullOrEmpty()) {
+                firestoreRepository.updateUser(
+                    userMap,
+                    onError = { e ->
+                    },
+                    onSuccess = {
+                    }
+                )
+            }
+        }
+    }
+
+
 }
