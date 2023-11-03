@@ -5,6 +5,7 @@ import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import com.google.firebase.auth.FirebaseAuth
 import com.pixelark.capstoneproject.core.BaseActivity
 import com.pixelark.capstoneproject.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,5 +37,20 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
                 else -> binding.bottomNavView.isVisible = false
             }
         }
+    }
+
+    fun callCardService() {
+        val uid = FirebaseAuth.getInstance().currentUser?.uid
+        uid?.let { viewModel.getCartProducts(it) }
+        viewModel.cartProductsData.observe(this) { response ->
+            updateCartBadgeCount(response.products.size)
+        }
+    }
+
+    fun updateCartBadgeCount(count: Int) {
+        val menuItemId = R.id.cart_graph
+        val badge = binding.bottomNavView.getOrCreateBadge(menuItemId)
+        badge.isVisible = count != 0
+        badge.number = count
     }
 }

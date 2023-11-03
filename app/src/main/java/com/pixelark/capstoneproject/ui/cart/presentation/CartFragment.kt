@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import com.pixelark.capstoneproject.MainActivity
 import com.pixelark.capstoneproject.adapter.CartAdapter
 import com.pixelark.capstoneproject.adapter.CartClickListener
 import com.pixelark.capstoneproject.adapter.CartDeleteClickListener
@@ -58,6 +59,7 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>(
                 viewModel.deleteAllProducts(ClearCartRequest(user.uid))
             }
             clearPaymentData()
+            (activity as MainActivity).updateCartBadgeCount(0)
         }
 
         viewModel.deleteAllProductsData.observe(requireActivity()) { response ->
@@ -105,6 +107,10 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>(
                                 response.message,
                                 Toast.LENGTH_SHORT
                             ).show()
+                            if (cartAdapter.itemCount == 0) {
+                                clearPaymentData()
+                            }
+                            (activity as MainActivity).updateCartBadgeCount(cartAdapter.itemCount)
                         }
                         setAmounts()
                     }

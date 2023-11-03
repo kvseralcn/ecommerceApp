@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
+import com.pixelark.capstoneproject.MainActivity
 import com.pixelark.capstoneproject.R
 import com.pixelark.capstoneproject.adapter.CategoryAdapter
 import com.pixelark.capstoneproject.adapter.CategoryClickListener
@@ -48,6 +49,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
     private lateinit var categoryAdapter: CategoryAdapter
     private lateinit var productAdapter: ProductAdapter
     override fun onFragmentStarted() {
+        (activity as MainActivity).callCardService()
+
         activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 // TODO: pop up çıkar çıkmak istediğnie emin misini diye
