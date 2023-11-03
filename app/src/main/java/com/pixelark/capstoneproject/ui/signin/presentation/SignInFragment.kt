@@ -23,7 +23,7 @@ class SignInFragment : BaseFragment<FragmentSigninBinding, SignInViewModel>(
         viewModel.authResult.observe(this) {
             if (it.isSuccess) {
                 Toast.makeText(requireContext(), "Success!", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.homeFragment)
+                findNavController().navigate(R.id.home_graph)
             } else {
                 binding.fragmentSignInEtEmail.editText?.text = null
                 binding.fragmentSignInEtPassword.editText?.text = null
