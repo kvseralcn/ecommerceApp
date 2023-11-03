@@ -1,27 +1,35 @@
 package com.pixelark.capstoneproject
 
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.pixelark.capstoneproject.core.BaseViewModel
+import com.pixelark.capstoneproject.core.data.GetCartProductsResponse
+import com.pixelark.capstoneproject.core.repository.StoreRepository
+import com.pixelark.capstoneproject.ui.cart.domain.CartViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor() :
-    BaseViewModel()
-//@Inject constructor(private val authRepository: AuthenticationRepository) : ViewModel()
-{
+class MainViewModel @Inject constructor(private val storeRepository: StoreRepository) :
+    BaseViewModel() {
+    private val _cartProductsData = MutableLiveData<GetCartProductsResponse>()
+    val cartProductsData: LiveData<GetCartProductsResponse>
+        get() = _cartProductsData
 
-    //  private val _authResult = MutableLiveData<Result<Unit>>()
-    //  val authResult: LiveData<Result<Unit>> get() = _authResult
-
-    //  fun signUp(email: String, password: String) {
-    //      viewModelScope.launch {
-    //          _authResult.value = authRepository.signUp(email, password)
-    //      }
-    //  }
-
-    //  fun signIn(email: String, password: String) {
-    //      viewModelScope.launch {
-    //          _authResult.value = authRepository.signIn(email, password)
-    //      }
-    //  }
+    fun getCartProducts(userId: String) {
+        viewModelScope.launch {
+            storeRepository.getCartProducts(userId)
+                .catch {
+                    Log.e(CartViewModel.TAG, it.toString())
+                }
+                .collect { cartProducts ->
+                    Log.d(CartViewModel.TAG, cartProducts.toString())
+                    _cartProductsData.postValue(cartProducts)
+                }
+        }
+    }
 }
