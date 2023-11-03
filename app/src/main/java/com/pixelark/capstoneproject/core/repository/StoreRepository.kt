@@ -2,6 +2,7 @@ package com.pixelark.capstoneproject.core.repository
 
 import com.pixelark.capstoneproject.core.data.AddToCartRequest
 import com.pixelark.capstoneproject.core.data.AddToCartResponse
+import com.pixelark.capstoneproject.core.data.CartCountResponse
 import com.pixelark.capstoneproject.core.data.CategoriesResponse
 import com.pixelark.capstoneproject.core.data.ClearCartRequest
 import com.pixelark.capstoneproject.core.data.ClearCartResponse
@@ -23,6 +24,7 @@ interface StoreRepository {
     fun getDeleteFromCart(request: DeleteFromCartRequest): Flow<DeleteFromCartResponse>
     fun getClearCart(request: ClearCartRequest): Flow<ClearCartResponse>
     fun getCartProducts(userId: String): Flow<GetCartProductsResponse>
+    fun getCartCount(userId: String): Flow<CartCountResponse>
     fun getSearchProducts(query: String): Flow<SearchProductsResponse>
     fun getCategories(): Flow<CategoriesResponse>
     fun getProductsByCategory(category: String): Flow<ProductsByCategoryResponse>

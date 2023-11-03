@@ -41,9 +41,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
 
     fun callCardService() {
         val uid = FirebaseAuth.getInstance().currentUser?.uid
-        uid?.let { viewModel.getCartProducts(it) }
-        viewModel.cartProductsData.observe(this) { response ->
-            updateCartBadgeCount(response.products.size)
+        uid?.let { viewModel.getCartCount(it) }
+        viewModel.cartCountData.observe(this) { response ->
+            updateCartBadgeCount(response.count)
         }
     }
 
