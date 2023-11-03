@@ -8,6 +8,7 @@ import java.io.Serializable
 data class ProductModel(
     @PrimaryKey
     var id: Int = 0,
+    var userId: String? = null,
     var title: String? = null,
     var price: Double? = null,
     var salePrice: Double? = null,

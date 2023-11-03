@@ -18,8 +18,8 @@ interface ProductDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertProduct(product: ProductModel)
 
-    @Query("SELECT * FROM favorites")
-    fun getFavoriteProducts(): List<ProductModel>
+    @Query("SELECT * FROM favorites WHERE userId = :userId")
+    fun getFavoriteProducts(userId: String): List<ProductModel>
 
     @Query("DELETE FROM favorites WHERE id = :productId")
     fun deleteProduct(productId: Int)
