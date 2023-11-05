@@ -32,6 +32,7 @@
 
     <string name="unknown">Bilgi alınamadı.</string>
     <string name="edittext_empty_error">Bu alan boş bırakılamaz!</string>
+    <string name="forgot_password_empty_email_warning">Şifre sıfırlamak için email adresinizi kontrol edin</string>
 
     <!-- Arrays -->
     <string-array name="month_list">

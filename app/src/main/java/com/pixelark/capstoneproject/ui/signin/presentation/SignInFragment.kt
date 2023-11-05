@@ -35,6 +35,10 @@ class SignInFragment : BaseFragment<FragmentSigninBinding, SignInViewModel>(
             }
         }
 
+        binding.fragmentSignInTvForgotPassword.setOnClickListener() {
+            findNavController().navigate(R.id.action_signInFragment_to_forgotPasswordFragment)
+        }
+
         binding.fragmentSignInBtnSignIn.setOnClickListener {
             val email = binding.fragmentSignInEtEmail.editText?.text.toString()
             val password = binding.fragmentSignInEtPassword.editText?.text.toString()
