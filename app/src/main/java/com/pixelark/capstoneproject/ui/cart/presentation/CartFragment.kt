@@ -1,6 +1,7 @@
 package com.pixelark.capstoneproject.ui.cart.presentation
 
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
@@ -34,6 +35,9 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>(
         viewModel.cartProductsData.observe(this) { response ->
             setCartAdapter(response.products)
 
+            binding.fragmentCartIbDeleteAll.isVisible = cartAdapter.itemCount != 0
+            binding.fragmentCartIvEmptyState.isVisible = cartAdapter.itemCount == 0
+
             if (response.products.isNotEmpty()) {
                 setAmounts()
             } else {
@@ -54,6 +58,8 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>(
         }
 
         binding.fragmentCartIbDeleteAll.setOnClickListener {
+            binding.fragmentCartIbDeleteAll.isVisible = false
+            binding.fragmentCartIvEmptyState.isVisible = true
             val user = FirebaseAuth.getInstance().currentUser
             if (user != null) {
                 viewModel.deleteAllProducts(ClearCartRequest(user.uid))
@@ -107,8 +113,12 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>(
                                 response.message,
                                 Toast.LENGTH_SHORT
                             ).show()
+                            binding.fragmentCartIbDeleteAll.isVisible = cartAdapter.itemCount != 0
                             if (cartAdapter.itemCount == 0) {
                                 clearPaymentData()
+                                binding.fragmentCartIvEmptyState.isVisible = true
+                            } else {
+                                binding.fragmentCartIvEmptyState.isVisible = false
                             }
                             (activity as MainActivity).updateCartBadgeCount(cartAdapter.itemCount)
                         }
