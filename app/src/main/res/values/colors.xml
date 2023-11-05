@@ -2,6 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="unselect_bottom_nav_color">#D3D3D3</color>
+    <color name="select_bottom_nav_color">#6A6A6A</color>
     <color name="green">#068531</color>
     <color name="red">#DD1130</color>
     <color name="bottom_sheet_background_tint">#66000000</color>
