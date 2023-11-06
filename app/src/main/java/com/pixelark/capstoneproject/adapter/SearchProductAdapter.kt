@@ -13,7 +13,7 @@ import com.pixelark.capstoneproject.util.getPriceWithCurrency
 import com.pixelark.capstoneproject.util.getSalePriceWithCurrency
 
 class SearchProductAdapter constructor(
-    private val searchProductList: List<ProductModel>,
+    private val searchProductList: MutableList<ProductModel>,
     private val searchProductClickListener: SearchProductClickListener
 ) : RecyclerView.Adapter<SearchProductAdapter.SearchProductHolder>() {
 
@@ -50,6 +50,11 @@ class SearchProductAdapter constructor(
         holder.itemView.setOnClickListener {
             searchProductClickListener.onSearchClick(products)
         }
+    }
+
+    fun clearList() {
+        searchProductList.clear()
+        notifyDataSetChanged()
     }
 }
 

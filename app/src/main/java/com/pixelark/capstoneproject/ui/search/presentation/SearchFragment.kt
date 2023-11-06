@@ -1,6 +1,7 @@
 package com.pixelark.capstoneproject.ui.search.presentation
 
 import android.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,12 +41,20 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(
                         viewModel.getSearchProduct(newText.toString())
                     }
                 }
+                if (newText != null) {
+                    if (newText.isEmpty()) {
+                        searchProductAdapter.clearList()
+                        binding.fragmentSearchIvEmptyState.isVisible =
+                            searchProductAdapter.itemCount == 0
+                    }
+                }
                 return true
             }
         })
 
         viewModel.searchProductData.observe(this) { response ->
             setSearchProductAdapter(response.products)
+            binding.fragmentSearchIvEmptyState.isVisible = searchProductAdapter.itemCount == 0
         }
     }
 
