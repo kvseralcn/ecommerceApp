@@ -1,5 +1,6 @@
 package com.pixelark.capstoneproject.ui.favorite.presentation
 
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.pixelark.capstoneproject.adapter.FavoriteProductAdapter
@@ -27,6 +28,8 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding, FavoriteViewModel
             val favoriteProducts = viewModel.getFavoriteProducts()
             withContext(Dispatchers.Main) {
                 setFavoriteProductAdapter(favoriteProducts)
+                binding.fragmentFavoriteIvEmptyState.isVisible =
+                    favoriteProductAdapter.itemCount == 0
             }
         }
     }
