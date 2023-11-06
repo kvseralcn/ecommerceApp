@@ -37,12 +37,13 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>(
 
             binding.fragmentCartIbDeleteAll.isVisible = cartAdapter.itemCount != 0
             binding.fragmentCartIvEmptyState.isVisible = cartAdapter.itemCount == 0
+            binding.fragmentCartClPaymentDetail.isVisible = cartAdapter.itemCount != 0
+            binding.fragmentCartBtnPayment.isVisible = cartAdapter.itemCount != 0
 
             if (response.products.isNotEmpty()) {
                 setAmounts()
             } else {
                 clearPaymentData()
-                // TODO ödeme yap butonunu deaktif et
             }
             binding.fragmentCartBtnPayment.setOnClickListener {
                 val action =
@@ -60,6 +61,8 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>(
         binding.fragmentCartIbDeleteAll.setOnClickListener {
             binding.fragmentCartIbDeleteAll.isVisible = false
             binding.fragmentCartIvEmptyState.isVisible = true
+            binding.fragmentCartClPaymentDetail.isVisible = false
+            binding.fragmentCartBtnPayment.isVisible = false
             val user = FirebaseAuth.getInstance().currentUser
             if (user != null) {
                 viewModel.deleteAllProducts(ClearCartRequest(user.uid))
@@ -114,6 +117,9 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>(
                                 Toast.LENGTH_SHORT
                             ).show()
                             binding.fragmentCartIbDeleteAll.isVisible = cartAdapter.itemCount != 0
+                            binding.fragmentCartClPaymentDetail.isVisible =
+                                cartAdapter.itemCount != 0
+                            binding.fragmentCartBtnPayment.isVisible = cartAdapter.itemCount != 0
                             if (cartAdapter.itemCount == 0) {
                                 clearPaymentData()
                                 binding.fragmentCartIvEmptyState.isVisible = true
