@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clipChildren="false"
     android:clipToPadding="false"
-    android:paddingVertical="8dp"
-    android:paddingStart="16dp"
-    android:paddingEnd="0dp">
+    android:paddingVertical="@dimen/paddingSmall"
+    android:paddingStart="@dimen/paddingMedium"
+    android:paddingEnd="@dimen/parent_fill">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/saleProduct_cdCardView"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/productsByCategoryItem_cdCardView"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="@dimen/parent_fill"
+        android:layout_marginEnd="@dimen/marginSmall"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/medium"
+        app:cardElevation="@dimen/medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,52 +26,53 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:id="@+id/saleProduct_ivProductImage"
+                android:id="@+id/productsByCategoryItem_ivProductImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginSmall"
+                android:layout_marginTop="@dimen/marginSmall"
+                android:layout_marginEnd="@dimen/marginSmall"
                 android:background="@drawable/ic_launcher_background"
                 android:backgroundTint="@color/white"
                 android:scaleType="fitCenter" />
 
             <TextView
-                android:id="@+id/saleProduct_tvProductName"
+                android:id="@+id/productsByCategoryItem_tvProductName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginStart="@dimen/marginMedium"
+                android:layout_marginTop="@dimen/marginMedium"
+                android:layout_marginEnd="@dimen/marginMedium"
+                android:layout_marginBottom="@dimen/marginMedium"
                 android:ellipsize="end"
                 android:maxLines="1" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginStart="@dimen/marginMedium"
+                android:layout_marginTop="@dimen/marginSmall"
+                android:layout_marginBottom="@dimen/marginMedium"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/saleProduct_tvProductPrice"
+                    android:id="@+id/productsByCategoryItem_tvProductPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="@dimen/marginMedium"
                     android:ellipsize="end" />
 
                 <TextView
-                    android:id="@+id/saleProduct_tvProductSalePrice"
+                    android:id="@+id/productsByCategoryItem_tvProductSalePrice"
+                    style="@style/TextMedium16.Green"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:textColor="@color/green"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
+                    android:ellipsize="end" />
+
             </LinearLayout>
 
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

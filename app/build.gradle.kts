@@ -51,8 +51,8 @@ dependencies {
     implementation("com.airbnb.android:lottie:6.1.0")
 
     //Room
-    implementation("androidx.room:room-runtime:2.5.2")
-    kapt("androidx.room:room-compiler:2.5.2")
+    implementation("androidx.room:room-runtime:2.6.0")
+    kapt("androidx.room:room-compiler:2.6.0")
 
     //Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")

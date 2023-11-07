@@ -143,7 +143,7 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding, PaymentViewModel>(
         bottomSheetBinding.bottomSheetValidThruNpSelect.minValue = 0
         bottomSheetBinding.bottomSheetValidThruNpSelect.displayedValues = validStringArray
 
-        bottomSheetBinding.fragmentPaymentTvSelect.setOnClickListener {
+        bottomSheetBinding.bottomSheetValidThruTvSelect.setOnClickListener {
             val selectedIndex = bottomSheetBinding.bottomSheetValidThruNpSelect.value
             onValueSelected(validThruArray[selectedIndex])
             dialog.dismiss()

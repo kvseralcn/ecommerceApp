@@ -7,15 +7,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="@dimen/marginMedium"
+        android:layout_marginEnd="@dimen/marginMedium"
         android:fitsSystemWindows="true">
 
         <ImageButton
             android:id="@+id/fragmentHome_btnUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/marginMedium"
             android:background="@android:color/transparent"
             android:src="@drawable/baseline_account_circle_24"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,9 +24,9 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/fragmentHome_cvCampaign"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="16dp"
-            app:cardCornerRadius="16dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginMedium"
+            app:cardCornerRadius="@dimen/marginMedium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentHome_btnUser">
@@ -44,11 +44,10 @@
             android:id="@+id/fragmentHome_tvSaleProductTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="@dimen/marginMedium"
+            android:layout_marginTop="@dimen/marginMedium"
             android:text="@string/sale_product_text"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            style="@style/TextMedium16.Black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentHome_cvCampaign" />
 
@@ -56,10 +55,10 @@
             android:id="@+id/fragmentHome_rvSaleRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/marginMedium"
             android:clipChildren="false"
             android:clipToPadding="false"
-            android:paddingEnd="16dp"
+            android:paddingEnd="@dimen/marginMedium"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentHome_tvSaleProductTitle" />
@@ -68,10 +67,10 @@
             android:id="@+id/fragmentHome_rvCategoryRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/marginMedium"
             android:clipChildren="false"
             android:clipToPadding="false"
-            android:paddingEnd="16dp"
+            android:paddingEnd="@dimen/paddingMedium"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentHome_rvSaleRecyclerView" />
@@ -79,13 +78,13 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/fragmentHome_rvProductRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="@dimen/parent_fill"
+            android:layout_marginTop="@dimen/marginMedium"
             android:clipChildren="false"
             android:clipToPadding="false"
             android:nestedScrollingEnabled="true"
-            android:paddingEnd="16dp"
-            android:paddingBottom="16dp"
+            android:paddingEnd="@dimen/paddingMedium"
+            android:paddingBottom="@dimen/paddingMedium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentHome_rvCategoryRecyclerView" />

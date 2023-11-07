@@ -35,16 +35,17 @@ class ProductsByCategoryAdapter constructor(
 
         Glide.with(holder.itemView.context)
             .load(products.imageOne)
-            .into(holder.binding.saleProductIvProductImage)
-        holder.binding.saleProductTvProductName.text = products.title
-        holder.binding.saleProductTvProductPrice.text =
+            .into(holder.binding.productsByCategoryItemIvProductImage)
+        holder.binding.productsByCategoryItemTvProductName.text = products.title
+        holder.binding.productsByCategoryItemTvProductPrice.text =
             products.getPriceWithCurrency(Constants.Currency.TL)
 
         if (products.saleState == true) {
-            holder.binding.saleProductTvProductPrice.setTextColor(Color.RED)
-            holder.binding.saleProductTvProductSalePrice.text =
+            holder.binding.productsByCategoryItemTvProductPrice.setTextColor(Color.RED)
+            holder.binding.productsByCategoryItemTvProductSalePrice.text =
                 products.getSalePriceWithCurrency(Constants.Currency.TL)
-            holder.binding.saleProductTvProductPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            holder.binding.productsByCategoryItemTvProductPrice.paintFlags =
+                Paint.STRIKE_THRU_TEXT_FLAG
         }
 
         holder.itemView.setOnClickListener {

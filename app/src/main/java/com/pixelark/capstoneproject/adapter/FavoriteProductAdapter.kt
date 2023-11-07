@@ -35,16 +35,16 @@ class FavoriteProductAdapter constructor(
 
         Glide.with(holder.itemView.context)
             .load(products.imageOne)
-            .into(holder.binding.productsItemIvProductImage)
-        holder.binding.productsItemTvProductName.text = products.title
-        holder.binding.productsItemTvProductPrice.text =
+            .into(holder.binding.favoriteItemIvProductImage)
+        holder.binding.favoriteItemTvProductName.text = products.title
+        holder.binding.favoriteItemTvProductPrice.text =
             products.getPriceWithCurrency(Constants.Currency.TL)
 
         if (products.saleState == true) {
-            holder.binding.productsItemTvProductPrice.setTextColor(Color.RED)
-            holder.binding.productsItemTvProductSalePrice.text =
+            holder.binding.favoriteItemTvProductPrice.setTextColor(Color.RED)
+            holder.binding.favoriteItemTvProductSalePrice.text =
                 products.getSalePriceWithCurrency(Constants.Currency.TL)
-            holder.binding.productsItemTvProductPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            holder.binding.favoriteItemTvProductPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
         }
 
         holder.itemView.setOnClickListener {

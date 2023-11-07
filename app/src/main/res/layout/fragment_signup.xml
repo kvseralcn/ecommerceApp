@@ -8,12 +8,10 @@
         android:id="@+id/fragmentSignUp_tvSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="@dimen/marginLarge"
+        android:layout_marginTop="@dimen/marginExtraLarge"
         android:text="@string/signUpButton_name"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        android:textStyle="bold"
+        style="@style/TextLarge32.Black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,20 +19,20 @@
         android:id="@+id/fragmentSignUp_tvDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="@dimen/marginLarge"
+        android:layout_marginTop="@dimen/marginMedium"
         android:text="@string/signUpPage_title"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="@dimen/textSizeMedium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentSignUp_tvSignup" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="@dimen/marginLarge"
+        android:layout_marginTop="@dimen/marginMedium"
+        android:layout_marginEnd="@dimen/marginLarge"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentSignUp_tvDetail">
@@ -43,7 +41,7 @@
             android:id="@+id/fragmentSignUp_etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/marginMedium"
             android:ems="10"
             android:hint="@string/name"
             android:maxLength="35">
@@ -52,13 +50,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/fragmentSignUp_etSurname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/marginLarge"
             android:ems="10"
             android:hint="@string/surname"
             android:maxLength="35">
@@ -67,13 +66,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/fragmentSignUp_etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/marginLarge"
             android:ems="10"
             android:hint="@string/email"
             android:maxLength="35">
@@ -82,13 +82,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/fragmentSignUp_etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/marginLarge"
             android:ems="10"
             android:hint="@string/password"
             android:maxLength="8"
@@ -98,13 +99,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/fragmentSignUp_etConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/marginLarge"
             android:ems="10"
             android:hint="@string/password"
             android:maxLength="8"
@@ -114,15 +116,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btnSignUp"
+            android:id="@+id/fragmentSignUp_btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/signInButton_name"
+            android:layout_marginTop="@dimen/marginLarge"
+            android:text="@string/signUpButton_name"
             app:layout_constraintTop_toTopOf="parent" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/marginMedium"
         android:background="@drawable/alert_dialog_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -17,10 +17,9 @@
             android:id="@+id/customAlertDialog_tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="UYARI"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:layout_marginTop="@dimen/marginSmall"
+            android:text="@string/warning_message"
+            style="@style/TextMedium16.Black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,26 +28,27 @@
             android:id="@+id/customAlertDialog_tvInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:text="Tüm bilgileri girin."
-            android:textSize="18sp"
+            android:layout_marginStart="@dimen/marginMedium"
+            android:layout_marginTop="@dimen/marginLarge"
+            android:text="@string/hint_enter_all_information"
+            android:textSize="@dimen/textSizeMedium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/customAlertDialog_tvTitle" />
 
         <Button
             android:id="@+id/customAlertDialog_btnOk"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/parent_fill"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/marginLarge"
             android:background="@drawable/alert_dialog_button_background"
-            android:text="Tamam"
+            android:text="@string/ok"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/customAlertDialog_tvInfo"
             app:layout_constraintWidth_default="spread" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

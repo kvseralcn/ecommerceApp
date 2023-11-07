@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ECECEC">
+    android:background="@color/page_background_color">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragmentPayment_clCardDesign"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_height="@dimen/parent_fill"
+        android:layout_marginHorizontal="@dimen/marginMedium"
+        android:layout_marginTop="@dimen/marginLarge"
         android:background="@drawable/credit_card_design"
-        android:padding="16dp"
+        android:padding="@dimen/marginMedium"
         app:layout_constraintDimensionRatio="H,3.370:2.125 "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,11 +31,11 @@
             android:id="@+id/fragmentPayment_tvInCardName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="AYŞE YILDIZ"
-            android:textColor="#A8A8A8"
-            android:textSize="16sp"
+            android:layout_marginTop="@dimen/marginMedium"
+            android:layout_marginBottom="@dimen/marginMedium"
+            android:text="@string/card_name"
+            android:textColor="@color/card_text_color"
+            android:textSize="@dimen/textSizeMedium"
             app:layout_constraintBottom_toTopOf="@+id/fragmentPayment_tvInCardCardNumber"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -43,10 +43,10 @@
             android:id="@+id/fragmentPayment_tvInCardCardNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="XXXX XXXX XXXX 3947"
-            android:textColor="#A8A8A8"
-            android:textSize="20sp"
+            android:layout_marginBottom="@dimen/marginMedium"
+            android:text="@string/card_number"
+            android:textColor="@color/card_text_color"
+            android:textSize="@dimen/textSizeMedium20"
             app:layout_constraintBottom_toTopOf="@+id/fragmentPayment_tvInCardValidThru"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -55,10 +55,10 @@
             android:id="@+id/fragmentPayment_tvInCardValidThru"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            android:text="VALID\nTHRU"
-            android:textColor="#A8A8A8"
+            android:layout_marginTop="@dimen/marginSmall"
+            android:layout_marginBottom="@dimen/marginMedium"
+            android:text="@string/card_valid_thru"
+            android:textColor="@color/card_text_color"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -68,8 +68,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
-            android:text=": 12/26"
-            android:textColor="#A8A8A8"
+            android:text="@string/card_month_year"
+            android:textColor="@color/card_text_color"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/fragmentPayment_tvInCardValidThru" />
@@ -79,20 +79,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="@dimen/marginMedium"
+            android:layout_marginBottom="@dimen/marginMedium"
             android:src="@drawable/mastercard"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fragmentPayment_etName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="@dimen/marginMedium"
+        android:layout_marginTop="@dimen/marginMedium"
+        android:layout_marginEnd="@dimen/marginMedium"
         android:ems="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,8 +103,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_edittext_background"
-            android:hint="Ad Soyad"
+            android:hint="@string/name_surname"
             android:inputType="text" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -111,7 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/marginMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentPayment_etName">
@@ -120,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_edittext_background"
-            android:hint="Kart Numarası"
+            android:hint="@string/card_number_text"
             android:inputType="number"
             android:maxLength="19" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -129,9 +131,9 @@
         android:id="@+id/fragmentPayment_clCardDetailInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="8dp"
+        android:layout_marginTop="@dimen/marginExtraSmall"
+        android:paddingHorizontal="@dimen/marginMedium"
+        android:paddingVertical="@dimen/marginSmall"
         app:layout_constraintTop_toBottomOf="@+id/fragmentPayment_etCardNumber">
 
 
@@ -141,10 +143,10 @@
             android:layout_height="56dp"
             android:background="@drawable/custom_edittext_background"
             android:gravity="center"
-            android:paddingHorizontal="16dp"
-            android:text="Ay"
-            android:textColor="#707070"
-            android:textSize="16sp"
+            android:paddingHorizontal="@dimen/marginMedium"
+            android:text="@string/month"
+            android:textColor="@color/text_card_color"
+            android:textSize="@dimen/textSizeMedium"
             app:drawableEndCompat="@drawable/baseline_arrow_drop_down_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -158,10 +160,10 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/custom_edittext_background"
             android:gravity="center"
-            android:paddingHorizontal="16dp"
-            android:text="Yıl"
-            android:textColor="#707070"
-            android:textSize="16sp"
+            android:paddingHorizontal="@dimen/marginMedium"
+            android:text="@string/year"
+            android:textColor="@color/text_card_color"
+            android:textSize="@dimen/textSizeMedium"
             app:drawableEndCompat="@drawable/baseline_arrow_drop_down_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/fragmentPayment_tvMonth"
@@ -171,7 +173,7 @@
             android:id="@+id/fragmentPayment_etCVV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="CVV"
+            android:hint="@string/cvv"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -181,21 +183,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/custom_edittext_background"
-                android:hint="CVV"
+                android:hint="@string/cvv"
                 android:inputType="number"
                 android:maxLength="3" />
+
         </com.google.android.material.textfield.TextInputLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/fragmentPayment_etDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="16dp"
-        android:text="Açık adresinizi aşağıdaki alana giriniz"
-        android:textSize="16sp"
+        android:layout_marginStart="@dimen/marginMedium"
+        android:layout_marginTop="@dimen/marginExtraLarge"
+        android:layout_marginEnd="@dimen/marginMedium"
+        android:text="@string/address_description"
+        android:textSize="@dimen/textSizeMedium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentPayment_clCardDetailInfo" />
 
@@ -203,7 +207,7 @@
         android:id="@+id/fragmentPayment_etAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/marginMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentPayment_etDescription">
@@ -212,18 +216,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_edittext_background"
-            android:hint="Adres bilgilerini girin"
+            android:hint="@string/address_text"
             android:inputType="textMultiLine"
             android:maxLines="4" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/fragmentPayment_btnPayment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Siparişi Tamamla"
+        android:layout_marginHorizontal="@dimen/marginMedium"
+        android:layout_marginBottom="@dimen/marginMedium"
+        android:text="@string/complete_order_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

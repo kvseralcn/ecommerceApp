@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ECECEC">
+    android:background="@color/page_background_color">
 
     <ImageButton
-        android:id="@+id/fragmentPayment_btnSignOut"
+        android:id="@+id/fragmentUser_btnSignOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginHorizontal="@dimen/marginMedium"
+        android:layout_marginTop="@dimen/marginMedium"
+        android:layout_marginBottom="@dimen/marginMedium"
         android:background="@android:color/transparent"
         android:src="@drawable/baseline_exit_to_app_24"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,7 @@
         android:id="@+id/fragmentUser_ivUserImage"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="@dimen/marginLarge"
         android:src="@drawable/baseline_account_circle_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,11 +31,11 @@
         android:id="@+id/fragmentUser_tvUserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="@dimen/marginMedium"
+        android:layout_marginTop="@dimen/marginMedium"
+        android:layout_marginEnd="@dimen/marginMedium"
         android:ems="10"
-        android:hint="İsim"
+        android:hint="@string/name_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentUser_ivUserImage">
@@ -45,17 +45,18 @@
             android:layout_height="wrap_content"
             android:background="@drawable/custom_edittext_background"
             android:inputType="text" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fragmentUser_tvUserPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="@dimen/marginMedium"
+        android:layout_marginTop="@dimen/marginMedium"
+        android:layout_marginEnd="@dimen/marginMedium"
         android:ems="10"
-        android:hint="Telefon"
+        android:hint="@string/phone_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentUser_tvUserName">
@@ -66,14 +67,15 @@
             android:background="@drawable/custom_edittext_background"
             android:inputType="phone"
             android:maxLength="13" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fragmentUser_tvUserAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:hint="Adres"
+        android:layout_margin="@dimen/marginMedium"
+        android:hint="@string/address_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentUser_tvUserPhoneNumber">
@@ -84,16 +86,18 @@
             android:background="@drawable/custom_edittext_background"
             android:inputType="textMultiLine"
             android:maxLines="4" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/fragmentUser_btnUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Güncelle"
+        android:layout_marginHorizontal="@dimen/marginMedium"
+        android:layout_marginBottom="@dimen/marginMedium"
+        android:text="@string/update_hint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

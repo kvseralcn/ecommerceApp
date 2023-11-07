@@ -33,6 +33,42 @@
     <string name="unknown">Bilgi alınamadı.</string>
     <string name="edittext_empty_error">Bu alan boş bırakılamaz!</string>
     <string name="forgot_password_empty_email_warning">Şifre sıfırlamak için email adresinizi kontrol edin</string>
+    <string name="select">Seç</string>
+    <string name="warning_message">UYARI</string>
+    <string name="hint_enter_all_information">Tüm bilgileri girin.</string>
+    <string name="ok">Tamam</string>
+
+    <string name="subtotal_text">Ara Toplam:</string>
+    <string name="label_shipping">Kargo:</string>
+    <string name="total_payment_label">Toplam Ödeme:</string>
+    <string name="payment_button_text">Ödeme Yap</string>
+    <string name="cart_title">Sepetim</string>
+
+    <string name="favorites_title">Favorilerim</string>
+    <string name="add_card">Sepete Ekle</string>
+
+    <string name="update_password">Şifremi Güncelle</string>
+    <string name="card_number">XXXX XXXX XXXX 3947</string>
+    <string name="card_name">AYŞE YILDIZ</string>
+    <string name="card_valid_thru">VALID\nTHRU</string>
+    <string name="card_month_year">: 12/26</string>
+    <string name="name_surname">Ad Soyad</string>
+    <string name="card_number_text">Kart Numarası</string>
+    <string name="month">Ay</string>
+    <string name="year">Yıl</string>
+    <string name="cvv">CVV</string>
+    <string name="address_description">Açık adresinizi aşağıdaki alana giriniz</string>
+    <string name="address_text">Adres bilgilerini girin</string>
+    <string name="complete_order_text">Siparişi Tamamla</string>
+
+    <string name="forgot_password_text">Şifremi unuttum</string>
+    <string name="payment_complete_text">Ödeme tamamlandı.</string>
+    <string name="home_text">Anasayfa</string>
+    <string name="payment_page_message_text">Fatura mail adresine gönderilecek.</string>
+    <string name="name_hint">İsim</string>
+    <string name="phone_hint">Telefon</string>
+    <string name="address_hint">Adres</string>
+    <string name="update_hint">Güncelle</string>
 
     <!-- Arrays -->
     <string-array name="month_list">

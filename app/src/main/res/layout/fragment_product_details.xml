@@ -7,9 +7,9 @@
     <ImageView
         android:id="@+id/fragmentProductDetails_ivProductImage"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/parent_fill"
         android:background="@color/white"
-        android:layout_margin="64dp"
+        android:layout_margin="@dimen/marginExtraLarge"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/fragmentProductDetail_clDetail"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,10 +18,10 @@
 
     <ImageButton
         android:id="@+id/fragmentProductDetails_btnBack"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="@dimen/extraLarge"
+        android:layout_height="@dimen/extraLarge"
+        android:layout_marginTop="@dimen/marginMedium"
+        android:layout_marginStart="@dimen/marginMedium"
         android:background="@android:color/transparent"
         android:src="@drawable/baseline_arrow_back_ios_24"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,10 +30,10 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/favoriteAnimationView"
         android:layout_gravity="end|top"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="@dimen/extraLarge"
+        android:layout_height="@dimen/extraLarge"
+        android:layout_marginTop="@dimen/marginMedium"
+        android:layout_marginEnd="@dimen/marginMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:clickable="true"
@@ -45,9 +45,9 @@
         android:id="@+id/fragmentProductDetail_clDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="@dimen/marginMedium"
+        android:layout_marginEnd="@dimen/marginMedium"
+        android:layout_marginBottom="@dimen/marginMedium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentProductDetails_ivProductImage">
@@ -56,9 +56,8 @@
             android:id="@+id/fragmentProductDetails_tvSaleProductTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:layout_marginTop="@dimen/marginMedium"
+            style="@style/TextLarge24.Black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -67,9 +66,9 @@
             android:id="@+id/fragmentProductDetails_clConstraint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="@dimen/marginMedium"
+            android:layout_marginEnd="@dimen/marginMedium"
+            android:layout_marginBottom="@dimen/marginMedium"
             app:layout_constraintTop_toBottomOf="@+id/fragmentProductDetails_tvSaleProductTitle">
 
             <RatingBar
@@ -79,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:isIndicator="true"
                 android:numStars="5"
-                android:progressTint="#ECB71B"
+                android:progressTint="@color/rating_bar_fill_color"
                 android:stepSize="0.01"
                 app:layout_constraintEnd_toStartOf="@+id/fragmentProductDetails_tvSaleProductRate"
                 app:layout_constraintStart_toStartOf="parent"
@@ -89,9 +88,8 @@
                 android:id="@+id/fragmentProductDetails_tvSaleProductRate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                android:layout_marginStart="@dimen/marginSmall"
+                style="@style/TextMedium16.Black"
                 app:layout_constraintStart_toEndOf="@+id/fragmentProductDetails_rbBar"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,9 +97,8 @@
                 android:id="@+id/fragmentProductDetails_tvSaleProductCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                android:layout_marginTop="@dimen/marginMedium"
+                style="@style/TextMedium16.Black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -111,8 +108,8 @@
             android:id="@+id/fragmentProductDetails_tvSaleProductDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textSize="16sp"
+            android:layout_marginTop="@dimen/marginMedium"
+            android:textSize="@dimen/textSizeMedium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentProductDetails_clConstraint" />
 
@@ -120,10 +117,9 @@
             android:id="@+id/fragmentProductDetails_tvSaleProductSalePrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/marginMedium"
             android:textColor="@color/green"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            style="@style/TextLarge24.Black"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentProductDetails_tvSaleProductDescription" />
@@ -132,7 +128,7 @@
             android:id="@+id/fragmentProductDetails_tvProductPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/marginExtraSmall"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentProductDetails_tvSaleProductSalePrice" />
@@ -141,8 +137,8 @@
             android:id="@+id/fragmentPersonalInformation_btnAddCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Sepete Ekle"
+            android:layout_marginTop="@dimen/marginMedium"
+            android:text="@string/add_card"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentProductDetails_tvSaleProductDescription" />
     </androidx.constraintlayout.widget.ConstraintLayout>

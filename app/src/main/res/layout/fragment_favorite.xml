@@ -5,14 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/fragmentCart_tvTitleCart"
+        android:id="@+id/fragmentFavorite_tvTitleCart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Favorilerim"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:layout_marginStart="@dimen/marginMedium"
+        android:layout_marginTop="@dimen/marginMedium"
+        android:text="@string/favorites_title"
+        style="@style/TextMedium16.Black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,18 +27,18 @@
         android:layout_height="wrap_content" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/fragmentHome_rvFavoriteProductRecyclerView"
+        android:id="@+id/fragmentFavorite_rvFavoriteProductRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_margin="16dp"
+        android:layout_height="@dimen/parent_fill"
+        android:layout_marginTop="@dimen/marginMedium"
+        android:layout_marginStart="@dimen/marginMedium"
+        android:layout_margin="@dimen/marginMedium"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:nestedScrollingEnabled="true"
-        android:paddingEnd="16dp"
-        android:paddingBottom="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentCart_tvTitleCart"
+        android:paddingEnd="@dimen/paddingMedium"
+        android:paddingBottom="@dimen/paddingMedium"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentFavorite_tvTitleCart"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />

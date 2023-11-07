@@ -19,11 +19,10 @@
         android:id="@+id/fragmentCart_tvTitleCart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Sepetim"
-        android:textSize="16dp"
-        android:textStyle="bold"
+        android:layout_marginStart="@dimen/marginMedium"
+        android:layout_marginTop="@dimen/marginMedium"
+        android:text="@string/cart_title"
+        style="@style/TextMedium16.Black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,8 +30,8 @@
         android:id="@+id/fragmentCart_ibDeleteAll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="@dimen/marginMedium"
+        android:layout_marginEnd="@dimen/marginMedium"
         android:background="@android:color/transparent"
         android:src="@drawable/delete"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,11 +40,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fragmentCart_rvCartRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="@dimen/parent_fill"
+        android:layout_marginTop="@dimen/marginMedium"
         android:clipChildren="false"
         android:clipToPadding="false"
-        android:paddingEnd="16dp"
+        android:layout_marginEnd="@dimen/marginMedium"
+        android:layout_marginStart="@dimen/marginMedium"
         app:layout_constraintBottom_toTopOf="@+id/fragmentCart_clPaymentDetail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,10 +55,10 @@
         android:id="@+id/fragmentCart_clPaymentDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="@dimen/marginMedium"
+        android:layout_marginTop="@dimen/marginSmall"
+        android:layout_marginEnd="@dimen/marginMedium"
+        android:layout_marginBottom="@dimen/marginMedium"
         android:background="@drawable/fragment_cart_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,7 @@
             android:id="@+id/fragmentCart_clTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/marginMedium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -77,9 +77,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Ara Toplam: "
-                android:textSize="16sp"
-                android:textStyle="bold"
+                android:text="@string/subtotal_text"
+                style="@style/TextMedium16.Black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -89,8 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="28sp"
-                android:textStyle="bold"
+                style="@style/TextLarge28.Black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -98,7 +96,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#000000"
+                android:background="@color/black"
                 app:layout_constraintTop_toBottomOf="@+id/fragmentCart_tvSubTotal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -107,7 +105,7 @@
             android:id="@+id/fragmentCart_clShipping"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/marginMedium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentCart_clTotal">
 
@@ -116,9 +114,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Kargo: "
-                android:textSize="16sp"
-                android:textStyle="bold"
+                android:text="@string/label_shipping"
+                style="@style/TextMedium16.Black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -128,8 +125,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="28sp"
-                android:textStyle="bold"
+                style="@style/TextLarge28.Black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -137,7 +133,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#000000"
+                android:background="@color/black"
                 app:layout_constraintTop_toBottomOf="@+id/fragmentCart_tvShipping" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -146,7 +142,7 @@
             android:id="@+id/fragmentCart_clTotalPayment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/marginMedium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentCart_clShipping">
 
@@ -155,9 +151,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Toplam Ödeme: "
-                android:textSize="16sp"
-                android:textStyle="bold"
+                android:text="@string/total_payment_label"
+                style="@style/TextMedium16.Black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -167,23 +162,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="28sp"
-                android:textStyle="bold"
+                style="@style/TextLarge28.Black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/fragmentCart_btnPayment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Ödeme Yap"
+        android:layout_marginTop="@dimen/marginMedium"
+        android:layout_marginEnd="@dimen/marginMedium"
+        android:layout_marginBottom="@dimen/marginMedium"
+        android:text="@string/payment_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentCart_clPaymentDetail" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

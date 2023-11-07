@@ -35,16 +35,16 @@ class SearchProductAdapter constructor(
 
         Glide.with(holder.itemView.context)
             .load(products.imageOne)
-            .into(holder.binding.saleProductIvProductImage)
-        holder.binding.saleProductTvProductName.text = products.title
-        holder.binding.saleProductTvProductPrice.text =
+            .into(holder.binding.searchItemIvProductImage)
+        holder.binding.searchItemTvProductName.text = products.title
+        holder.binding.searchItemTvProductPrice.text =
             products.getPriceWithCurrency(Constants.Currency.TL)
 
         if (products.saleState == true) {
-            holder.binding.saleProductTvProductPrice.setTextColor(Color.RED)
-            holder.binding.saleProductTvProductSalePrice.text =
+            holder.binding.searchItemTvProductPrice.setTextColor(Color.RED)
+            holder.binding.searchItemTvProductSalePrice.text =
                 products.getSalePriceWithCurrency(Constants.Currency.TL)
-            holder.binding.saleProductTvProductPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            holder.binding.searchItemTvProductPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
         }
 
         holder.itemView.setOnClickListener {

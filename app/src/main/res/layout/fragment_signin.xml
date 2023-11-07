@@ -8,12 +8,10 @@
         android:id="@+id/fragmentSignIn_tvSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="@dimen/marginLarge"
+        android:layout_marginTop="@dimen/marginExtraLarge"
         android:text="@string/signIn_name"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        android:textStyle="bold"
+        style="@style/TextLarge32.Black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,20 +19,20 @@
         android:id="@+id/fragmentSignIn_tvDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="@dimen/marginLarge"
+        android:layout_marginTop="@dimen/marginMedium"
         android:text="@string/signIn_description"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="@dimen/textSizeMedium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentSignIn_tvSignIn" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="@dimen/marginLarge"
+        android:layout_marginTop="@dimen/marginMedium"
+        android:layout_marginEnd="@dimen/marginLarge"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentSignIn_tvDetail">
@@ -43,7 +41,7 @@
             android:id="@+id/fragmentSignIn_etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/marginLarge"
             android:ems="10"
             android:hint="@string/email"
             android:maxLength="35">
@@ -52,13 +50,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/fragmentSignIn_etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/marginLarge"
             android:ems="10"
             android:hint="@string/password"
             android:maxLength="8"
@@ -68,6 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -75,25 +75,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/marginMedium"
             android:clickable="true"
             android:focusable="true"
-            android:text="Şifremi unuttum" />
+            android:text="@string/forgot_password_text" />
 
         <Button
             android:id="@+id/fragmentSignIn_btnSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/marginLarge"
             android:text="@string/signInButton_name"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginStart="@dimen/marginLarge"
+            android:layout_marginTop="@dimen/marginLarge"
+            android:layout_marginEnd="@dimen/marginLarge"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentSignIn_tvDetail">
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/signIn_to_signUp"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="@dimen/textSizeMedium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -115,7 +115,9 @@
                 android:background="@drawable/baseline_arrow_forward_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

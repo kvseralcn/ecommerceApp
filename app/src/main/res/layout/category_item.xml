@@ -5,17 +5,16 @@
     android:layout_height="match_parent"
     android:clipChildren="false"
     android:clipToPadding="false"
-    android:paddingVertical="8dp"
-    android:paddingStart="16dp"
+    android:paddingVertical="@dimen/paddingSmall"
+    android:paddingStart="@dimen/paddingMedium"
     android:paddingEnd="0dp">
 
     <Button
         android:id="@+id/categoryItem_tvCategory"
+        style="@style/TextMedium16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/categories_background"
-        android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

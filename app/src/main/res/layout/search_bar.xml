@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="56dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
+    android:layout_marginStart="@dimen/marginMedium"
+    android:layout_marginEnd="@dimen/marginMedium"
     android:background="@drawable/search_bar_background"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    android:padding="16dp"
-    app:layout_goneMarginStart="16dp">
+    android:padding="@dimen/paddingMedium"
+    app:layout_goneMarginStart="@dimen/marginMedium">
 
     <ImageView
         android:id="@+id/searchBar_ivSearch"
@@ -24,7 +24,7 @@
         android:id="@+id/searchBar_tvHint"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/marginMedium"
         android:background="@null"
         android:imeOptions="actionSearch"
         android:inputType="text"

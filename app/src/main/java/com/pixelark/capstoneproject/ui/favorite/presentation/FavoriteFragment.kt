@@ -21,7 +21,7 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding, FavoriteViewModel
 ) {
     private lateinit var favoriteProductAdapter: FavoriteProductAdapter
     override fun onFragmentStarted() {
-        binding.fragmentHomeRvFavoriteProductRecyclerView.layoutManager =
+        binding.fragmentFavoriteRvFavoriteProductRecyclerView.layoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         CoroutineScope(Dispatchers.IO).launch {
@@ -47,6 +47,6 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding, FavoriteViewModel
                     }
                 }
             )
-        binding.fragmentHomeRvFavoriteProductRecyclerView.adapter = favoriteProductAdapter
+        binding.fragmentFavoriteRvFavoriteProductRecyclerView.adapter = favoriteProductAdapter
     }
 }

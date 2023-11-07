@@ -27,7 +27,7 @@ class SignUpFragment : BaseFragment<FragmentSignupBinding, SignUpViewModel>(
             }
         }
 
-        binding.btnSignUp.setOnClickListener {
+        binding.fragmentSignUpBtnSignUp.setOnClickListener {
             var name = binding.fragmentSignUpEtName.editText?.text.toString()
             var surname = binding.fragmentSignUpEtSurname.editText?.text.toString()
             val email = binding.fragmentSignUpEtEmail.editText?.text.toString()

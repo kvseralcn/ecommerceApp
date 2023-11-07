@@ -1,5 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="customRatingBar" parent="android:style/Widget.Material.RatingBar.Small"></style>
+    <style name="customRatingBar" parent="android:style/Widget.Material.RatingBar.Small" />
+
+    <style name="TitleText">
+        <item name="android:textSize">@dimen/textSizeMedium28</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TitleText.Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextSmall8">
+        <item name="android:textSize">8sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextSmall8.Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextSmall12">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextSmall12.Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextMedium16">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextMedium16.Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextMedium16.Green">
+        <item name="android:textColor">@color/green</item>
+    </style>
+
+    <style name="TextLarge20">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextLarge20.Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextLarge24">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextLarge24.Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextLarge28">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>"
+    </style>
+
+    <style name="TextLarge28.Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextLarge32">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextLarge32.Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextLarge64">
+        <item name="android:textSize">64sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextLarge64.Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>

@@ -2,6 +2,8 @@ package com.pixelark.capstoneproject.ui.user.presentation
 
 import android.text.Editable
 import android.text.TextWatcher
+import androidx.navigation.fragment.findNavController
+import com.pixelark.capstoneproject.R
 import com.pixelark.capstoneproject.core.BaseFragment
 import com.pixelark.capstoneproject.databinding.FragmentUserBinding
 import com.pixelark.capstoneproject.ui.user.domain.UserViewModel
@@ -13,7 +15,7 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>(
     FragmentUserBinding::inflate, UserViewModel::class.java
 ) {
     override fun onFragmentStarted() {
-        binding.fragmentPaymentBtnSignOut.setOnClickListener() {
+        binding.fragmentUserBtnSignOut.setOnClickListener() {
             viewModel.signOut()
         }
         binding.fragmentUserBtnUpdate.setOnClickListener {
@@ -74,6 +76,8 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>(
             }
         })
 
-
+        binding.fragmentUserBtnSignOut.setOnClickListener {
+            findNavController().navigate(R.id.homeFragment)
+        }
     }
 }

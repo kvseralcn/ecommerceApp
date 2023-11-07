@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSizeExtraSmall">4sp</dimen>
+    <dimen name="textSizeSmall">8sp</dimen>
+    <dimen name="textSizeMedium">16sp</dimen>
+    <dimen name="textSizeMedium20">20sp</dimen>
+    <dimen name="textSizeMedium24">24sp</dimen>
+    <dimen name="textSizeMedium28">28sp</dimen>
+    <dimen name="textSizeLarge">32sp</dimen>
+    <dimen name="textSizeExtraLarge">64sp</dimen>
+
+    <dimen name="marginExtraSmall">4dp</dimen>
+    <dimen name="marginSmall">8dp</dimen>
+    <dimen name="marginMedium">16dp</dimen>
+    <dimen name="marginLarge">32dp</dimen>
+    <dimen name="marginExtraLarge">64dp</dimen>
+
+    <dimen name="paddingExtraSmall">4dp</dimen>
+    <dimen name="paddingSmall">8dp</dimen>
+    <dimen name="paddingMedium">16dp</dimen>
+    <dimen name="paddingLarge">32dp</dimen>
+    <dimen name="paddingExtraLarge">64dp</dimen>
+
+    <dimen name="extraSmall">4dp</dimen>
+    <dimen name="small">8dp</dimen>
+    <dimen name="medium">16dp</dimen>
+    <dimen name="large">32dp</dimen>
+    <dimen name="extraLarge">64dp</dimen>
+
+    <dimen name="parent_fill">0dp</dimen>
+</resources>

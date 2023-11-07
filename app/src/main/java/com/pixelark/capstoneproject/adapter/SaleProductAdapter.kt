@@ -35,14 +35,14 @@ class SaleProductAdapter constructor(
 
         Glide.with(holder.itemView.context)
             .load(products.imageOne)
-            .into(holder.binding.saleProductIvProductImage)
-        holder.binding.saleProductTvProductName.text = products.title
-        holder.binding.saleProductTvProductPrice.text =
+            .into(holder.binding.saleProductsItemIvProductImage)
+        holder.binding.saleProductsItemTvProductName.text = products.title
+        holder.binding.saleProductsItemTvProductPrice.text =
             products.getPriceWithCurrency(Constants.Currency.TL)
-        holder.binding.saleProductTvProductSalePrice.text =
+        holder.binding.saleProductsItemTvProductSalePrice.text =
             products.getSalePriceWithCurrency(Constants.Currency.TL)
 
-        holder.binding.saleProductTvProductPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+        holder.binding.saleProductsItemTvProductPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
 
         holder.itemView.setOnClickListener {
             searchProductClickListener.onClick(products)
