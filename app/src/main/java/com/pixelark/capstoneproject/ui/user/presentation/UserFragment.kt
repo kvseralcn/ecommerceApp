@@ -17,6 +17,7 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>(
     override fun onFragmentStarted() {
         binding.fragmentUserBtnSignOut.setOnClickListener() {
             viewModel.signOut()
+            findNavController().navigate(R.id.signInFragment)
         }
         binding.fragmentUserBtnUpdate.setOnClickListener {
             viewModel.updateUser(
@@ -75,9 +76,5 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>(
                 isFormatting = false
             }
         })
-
-        binding.fragmentUserBtnSignOut.setOnClickListener {
-            findNavController().navigate(R.id.homeFragment)
-        }
     }
 }

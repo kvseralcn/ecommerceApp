@@ -12,7 +12,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/favoriteItem_cdCardView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="240dp"
         android:layout_marginEnd="@dimen/small"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="@dimen/medium"
@@ -29,9 +29,9 @@
                 android:id="@+id/favoriteItem_ivProductImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/marginSmall"
-                android:layout_marginTop="@dimen/marginSmall"
-                android:layout_marginEnd="@dimen/marginSmall"
+                android:layout_marginStart="@dimen/marginMedium"
+                android:layout_marginTop="@dimen/marginMedium"
+                android:layout_marginEnd="@dimen/marginMedium"
                 android:background="@drawable/ic_launcher_background"
                 android:backgroundTint="@color/white"
                 android:scaleType="fitCenter" />

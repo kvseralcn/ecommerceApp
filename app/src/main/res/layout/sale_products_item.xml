@@ -28,6 +28,9 @@
                 android:id="@+id/saleProductsItem_ivProductImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginMedium"
+                android:layout_marginTop="@dimen/marginMedium"
+                android:layout_marginEnd="@dimen/marginMedium"
                 android:background="@drawable/ic_launcher_background"
                 android:backgroundTint="@color/white"
                 android:scaleType="fitCenter" />
