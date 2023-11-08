@@ -5,6 +5,7 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class DeleteFromCartRequest(
-    @Json(name = "id") val id: Int
+    @Json(name = "id") val id: Int,
+    @Json(name = "userId") val userId: String
 )
 

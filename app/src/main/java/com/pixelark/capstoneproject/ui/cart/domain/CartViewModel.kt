@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.auth.FirebaseAuth
 import com.pixelark.capstoneproject.core.BaseViewModel
 import com.pixelark.capstoneproject.core.data.ClearCartRequest
 import com.pixelark.capstoneproject.core.data.ClearCartResponse
@@ -17,7 +18,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CartViewModel @Inject constructor(private val storeRepository: StoreRepository) :
+class CartViewModel @Inject constructor(
+    private val storeRepository: StoreRepository,
+    private val auth: FirebaseAuth
+) :
     BaseViewModel() {
 
     companion object {
@@ -36,9 +40,10 @@ class CartViewModel @Inject constructor(private val storeRepository: StoreReposi
     val deleteAllProductsData: LiveData<ClearCartResponse>
         get() = _deleteAllProductsData
 
-    fun deleteProducts(request: DeleteFromCartRequest) {
+    fun deleteProducts(productId: Int) {
         viewModelScope.launch {
-            storeRepository.getDeleteFromCart(request)
+            val userId = auth.currentUser?.uid.orEmpty()
+            storeRepository.getDeleteFromCart(DeleteFromCartRequest(productId, userId))
                 .catch {
                     Log.e(TAG, it.toString())
                 }

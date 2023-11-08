@@ -2,7 +2,7 @@ package com.pixelark.capstoneproject.core.di
 
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor
-import com.google.firebase.BuildConfig
+import com.pixelark.capstoneproject.BuildConfig
 import com.pixelark.capstoneproject.core.service.RetrofitStoreApi
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

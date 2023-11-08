@@ -11,7 +11,6 @@ import com.pixelark.capstoneproject.adapter.CartClickListener
 import com.pixelark.capstoneproject.adapter.CartDeleteClickListener
 import com.pixelark.capstoneproject.core.BaseFragment
 import com.pixelark.capstoneproject.core.data.ClearCartRequest
-import com.pixelark.capstoneproject.core.data.DeleteFromCartRequest
 import com.pixelark.capstoneproject.core.data.ProductModel
 import com.pixelark.capstoneproject.databinding.FragmentCartBinding
 import com.pixelark.capstoneproject.ui.cart.domain.CartViewModel
@@ -109,7 +108,7 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>(
             },
                 object : CartDeleteClickListener {
                     override fun onClickDelete(selectedProduct: ProductModel) {
-                        viewModel.deleteProducts(DeleteFromCartRequest(selectedProduct.id))
+                        viewModel.deleteProducts(selectedProduct.id)
                         viewModel.deleteProductsData.observe(requireActivity()) { response ->
                             Toast.makeText(
                                 requireContext(),
