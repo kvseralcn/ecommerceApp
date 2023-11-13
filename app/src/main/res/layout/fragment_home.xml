@@ -63,6 +63,17 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentHome_tvSaleProductTitle" />
 
+        <TextView
+            android:id="@+id/fragmentHome_tvProductTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginMedium"
+            android:layout_marginTop="@dimen/marginMedium"
+            android:text="@string/product_text"
+            style="@style/TextMedium16.Black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentHome_rvSaleRecyclerView" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/fragmentHome_rvCategoryRecyclerView"
             android:layout_width="match_parent"
@@ -73,7 +84,7 @@
             android:paddingEnd="@dimen/paddingMedium"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fragmentHome_rvSaleRecyclerView" />
+            app:layout_constraintTop_toBottomOf="@+id/fragmentHome_tvProductTitle" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/fragmentHome_rvProductRecyclerView"

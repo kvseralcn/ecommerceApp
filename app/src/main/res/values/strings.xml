@@ -7,12 +7,12 @@
     <string name="signInButton_name">Giriş Yap</string>
     <string name="signUpButton_name">Üye Ol</string>
     <string name="signUpPage_title">Yeni bir hesap oluştur</string>
-    <string name="name">Ad</string>
-    <string name="surname">Soyad</string>
+    <string name="name">Ad Soyad</string>
     <string name="email">E-posta</string>
     <string name="password">Şifre</string>
     <string name="password_mismatch_error">Şifreler eşleşmiyor!</string>
     <string name="password_too_short">Şifre en az 6 karakter uzunluğunda olmalıdır!</string>
+    <string name="empty">Tüm alanları doldurduğunuzdan emin olun!</string>
     <string name="email_error">E-posta hatalı</string>
     <string name="home">Anasayfa</string>
     <string name="cart">Sepetim</string>
@@ -69,6 +69,8 @@
     <string name="phone_hint">Telefon</string>
     <string name="address_hint">Adres</string>
     <string name="update_hint">Güncelle</string>
+    <string name="password_empty">Parola alanı boş bırakılamaz!</string>
+    <string name="product_text">Tüm Ürünlere Göz Atın</string>
 
     <!-- Arrays -->
     <string-array name="month_list">

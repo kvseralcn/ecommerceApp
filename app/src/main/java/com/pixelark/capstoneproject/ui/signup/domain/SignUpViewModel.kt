@@ -30,7 +30,7 @@ class SignUpViewModel @Inject constructor(
     private val _signUpResult = MutableLiveData<DataOrException<Boolean, Exception>>()
     val signUpResult: LiveData<DataOrException<Boolean, Exception>> get() = _signUpResult
 
-    fun signUp(email: String, password: String, name: String, birthdate: String) {
+    fun signUp(email: String, password: String, name: String) {
         viewModelScope.launch {
             val result = authRepository.signUp(email, password)
             if (result.isSuccess) {
@@ -40,8 +40,7 @@ class SignUpViewModel @Inject constructor(
                         userModel = UserModel(
                             userId,
                             email,
-                            name,
-                            birthdate
+                            name
                         ),
                         onError = { e ->
                             Log.e(TAG, e.message.toString())

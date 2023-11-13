@@ -122,7 +122,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
             //      Log.i("XXX", "Not time yet.")
             //  }
             //TODO bu tarihte gösterildi mi kontrolü yap
-            if (secondsDifference >= 30) { // TODO: constants
+            if (secondsDifference >= 120) { // TODO: constants
                 // If it has been more than 24 hours, show the banner and update lastBannerDate
                 preferencesHelper.putString(lastBannerDateKey, currentDate.toString())
                 showBanner(campaignData)

@@ -46,13 +46,17 @@ class SignInFragment : BaseFragment<FragmentSigninBinding, SignInViewModel>(
                 email,
                 EmailInputValidationData(errorMessage = "E-mail hatalı")
             )
-            if (password.length < 6) {
+            if (password.isEmpty() && email.isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.empty), Toast.LENGTH_SHORT
+                ).show()
+            } else if (password.length < 6) {
                 Toast.makeText(
                     requireContext(),
                     getString(R.string.password_too_short), Toast.LENGTH_SHORT
                 ).show()
-            }
-            if (emailValidationResult.isSuccess) {
+            } else if (emailValidationResult.isSuccess) {
                 viewModel.signIn(email, password)
             } else {
                 Toast.makeText(

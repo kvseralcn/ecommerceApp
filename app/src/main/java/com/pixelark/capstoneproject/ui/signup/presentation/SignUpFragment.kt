@@ -29,35 +29,48 @@ class SignUpFragment : BaseFragment<FragmentSignupBinding, SignUpViewModel>(
 
         binding.fragmentSignUpBtnSignUp.setOnClickListener {
             var name = binding.fragmentSignUpEtName.editText?.text.toString()
-            var surname = binding.fragmentSignUpEtSurname.editText?.text.toString()
             val email = binding.fragmentSignUpEtEmail.editText?.text.toString()
             val password = binding.fragmentSignUpEtPassword.editText?.text.toString()
             val confirmPassword = binding.fragmentSignUpEtConfirmPassword.editText?.text.toString()
 
+            if (name.isEmpty() && email.isEmpty() && password.isEmpty() && confirmPassword.isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.empty), Toast.LENGTH_SHORT
+                ).show()
+            }
             //TODO: bu kodu passwordInputvalidatına yaz
-            if (password != confirmPassword) {
+            else if (password != confirmPassword) {
                 Toast.makeText(
                     requireContext(),
                     getString(R.string.password_mismatch_error), Toast.LENGTH_SHORT
                 ).show()
-            }
-
-            if (password.length < 6) {
+            } else if (password.length < 6) {
                 Toast.makeText(
                     requireContext(),
                     getString(R.string.password_too_short), Toast.LENGTH_SHORT
                 ).show()
-            }
-
-            val emailValidationResult =
-                EmailInputValidation.validate(email, EmailInputValidationData("Error"))
-            if (emailValidationResult.isSuccess && password.length >= 6) {
-                viewModel.signUp(email, password, name, surname)
-            } else {
+            } else if (confirmPassword.isEmpty()) {
                 Toast.makeText(
                     requireContext(),
-                    emailValidationResult.errorMessage, Toast.LENGTH_SHORT
+                    getString(R.string.password_empty), Toast.LENGTH_SHORT
                 ).show()
+            } else if (password.isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.password_empty), Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                val emailValidationResult =
+                    EmailInputValidation.validate(email, EmailInputValidationData("Error"))
+                if (emailValidationResult.isSuccess && password.length >= 6) {
+                    viewModel.signUp(email, password, name)
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        emailValidationResult.errorMessage, Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
     }
